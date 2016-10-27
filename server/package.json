@@ -1,0 +1,16 @@
+{
+  "name": "server",
+  "version": "0.0.0",
+  "description": "Provide API endpoints for Projects",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha test.js"
+  },
+  "author": "Wasif Zaman",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "node": "0.0.0",
+    "mocha": "~3.1.2",
+    "express": "~4.14.0"
+  }
+}
