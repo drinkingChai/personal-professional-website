@@ -378,6 +378,74 @@
           "from": "vary@~1.1.0"
         }
       }
+    },
+    "mongodb": {
+      "version": "2.2.11",
+      "from": "mongodb@",
+      "dependencies": {
+        "es6-promise": {
+          "version": "3.2.1",
+          "from": "es6-promise@3.2.1"
+        },
+        "mongodb-core": {
+          "version": "2.0.13",
+          "from": "mongodb-core@2.0.13",
+          "dependencies": {
+            "bson": {
+              "version": "0.5.6",
+              "from": "bson@~0.5.6"
+            },
+            "require_optional": {
+              "version": "1.0.0",
+              "from": "require_optional@~1.0.0",
+              "dependencies": {
+                "semver": {
+                  "version": "5.3.0",
+                  "from": "semver@^5.1.0"
+                },
+                "resolve-from": {
+                  "version": "2.0.0",
+                  "from": "resolve-from@^2.0.0"
+                }
+              }
+            }
+          }
+        },
+        "readable-stream": {
+          "version": "2.1.5",
+          "from": "readable-stream@2.1.5",
+          "dependencies": {
+            "buffer-shims": {
+              "version": "1.0.0",
+              "from": "buffer-shims@^1.0.0"
+            },
+            "core-util-is": {
+              "version": "1.0.2",
+              "from": "core-util-is@~1.0.0"
+            },
+            "inherits": {
+              "version": "2.0.3",
+              "from": "inherits@~2.0.1"
+            },
+            "isarray": {
+              "version": "1.0.0",
+              "from": "isarray@~1.0.0"
+            },
+            "process-nextick-args": {
+              "version": "1.0.7",
+              "from": "process-nextick-args@~1.0.6"
+            },
+            "string_decoder": {
+              "version": "0.10.31",
+              "from": "string_decoder@~0.10.x"
+            },
+            "util-deprecate": {
+              "version": "1.0.2",
+              "from": "util-deprecate@~1.0.1"
+            }
+          }
+        }
+      }
     }
   }
 }
