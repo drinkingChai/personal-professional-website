@@ -1,6 +1,12 @@
 var request = require('supertest');
 var app = require('./app');
 
+var redis = require('redis');
+var testClient = redis.createClient();
+
+testClient.select('profWebsiteTest'.length);
+testClient.flushdb();
+
 describe('Request to root path', function() {
   it('Returns a status code of 200', function(done) {
     request(app)
@@ -22,13 +28,29 @@ describe('Create new projects', function() {
       request(app)
         .post('/projects')
         .send('name=Vagabond+Knight&description=A+Dragon+Slaying+Riches+Taking+Knight')
-        .expect(201, done)
+        .expect(201, done);
   });
 
   it('Inserts a second project', function(done) {
       request(app)
         .post('/projects')
         .send('name=Bike+Builder&description=Mix+match+and+create+your+own+bike')
-        .expect(201, done)
+        .expect(201, done);
   });
 });
+
+describe('Show project info', function() {
+  before(function() {
+    testClient.hset('projects', 'Vagabond Knight', 'A Dragon Slaying Riches Taking Knight');
+  });
+
+  after(function() {
+    testClient.flushall();
+  });
+
+  it('Returns a status code of 200', function(done) {
+    request(app)
+      .get('/projects/Vagabond Knight')
+      .expect(200, done);
+  });
+})

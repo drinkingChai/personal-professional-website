@@ -6,6 +6,8 @@ var parseUrlencoded = bodyParser.urlencoded({ extended: false });
 var redis = require('redis');
 var redisClient = redis.createClient();
 
+redisClient.select(('profWebsiteTest' || 'development').length);
+
 app.get('/', function(request, response) {
   response.send('Ok');
 });
@@ -22,6 +24,12 @@ app.post('/projects', parseUrlencoded, function(request, response) {
     if (error) throw error;
     response.status(201).json(newProject.name);
   })
+});
+
+app.get('/projects/:name', function(request, response) {
+  redisClient.hget('projects', request.params.name, function(error, data) {
+    response.status(200).json(data);
+  });
 });
 
 module.exports = app;
