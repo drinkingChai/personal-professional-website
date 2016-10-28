@@ -53,4 +53,20 @@ describe('Show project info', function() {
       .get('/projects/Vagabond Knight')
       .expect(200, done);
   });
-})
+});
+
+describe('Deleting projects', function() {
+  before(function() {
+    testClient.hset('projects', 'Vagabond Knight', 'A Dragon Slaying Riches Taking Knight');
+  });
+
+  after(function() {
+    testClient.flushall();
+  });
+
+  it('Returns a 204 status code', function(done) {
+    request(app)
+      .delete('/projects/Vagabond Knight')
+      .expect(204, done);
+  });
+});

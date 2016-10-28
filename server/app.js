@@ -32,4 +32,11 @@ app.get('/projects/:name', function(request, response) {
   });
 });
 
+app.delete('/projects/:name', function(request, response) {
+  redisClient.hdel('projects', request.params.name, function(error) {
+    if (error) throw error;
+    response.sendStatus(204);
+  });
+});
+
 module.exports = app;
