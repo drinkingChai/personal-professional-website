@@ -8,3 +8,20 @@ describe('Request to root path', function() {
       .expect(200, done);
   });
 });
+
+describe('Request all projects', function() {
+  it('Returns all projects', function(done) {
+      request(app)
+        .get('/projects')
+        .expect(200, done);
+  });
+});
+
+describe('Create new projects', function() {
+  it('Returns a status code of 201', function(done) {
+      request(app)
+        .post('/projects')
+        .send('name=Vagabond+Knight&description=A+Dragon+Slaying+Riches+Taking+Knight')
+        .expect(201, done)
+  });
+});
