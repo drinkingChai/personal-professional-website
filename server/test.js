@@ -24,4 +24,11 @@ describe('Create new projects', function() {
         .send('name=Vagabond+Knight&description=A+Dragon+Slaying+Riches+Taking+Knight')
         .expect(201, done)
   });
+
+  it('Inserts a second project', function(done) {
+      request(app)
+        .post('/projects')
+        .send('name=Bike+Builder&description=Mix+match+and+create+your+own+bike')
+        .expect(201, done)
+  });
 });
