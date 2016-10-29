@@ -1,0 +1,25 @@
+{
+  "name": "personal-professional-website",
+  "version": "0.0.0",
+  "description": "Professional Website",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/drinkingChai/personal-professional-website.git"
+  },
+  "author": "Wasif Zaman",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/drinkingChai/personal-professional-website/issues"
+  },
+  "dependencies": {
+    "express": "~4.14.0"
+  },
+  "devDependencies": {
+    "supertest": "~2.0.1",
+    "mocha": "~3.1.2"
+  }
+}

@@ -7,13 +7,13 @@ var testClient = redis.createClient();
 testClient.select('profWebsiteTest'.length);
 testClient.flushdb();
 
-describe('Request to root path', function() {
-  it('Returns a status code of 200', function(done) {
-    request(app)
-      .get('/')
-      .expect(200, done);
-  });
-});
+// describe('Request to root path', function() {
+//   it('Returns a status code of 200', function(done) {
+//     request(app)
+//       .get('/')
+//       .expect(200, done);
+//   });
+// });
 
 describe('Request all projects', function() {
   it('Returns all projects', function(done) {

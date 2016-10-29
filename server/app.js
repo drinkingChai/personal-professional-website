@@ -8,9 +8,9 @@ var redisClient = redis.createClient();
 
 redisClient.select(('profWebsiteTest' || 'development').length);
 
-app.get('/', function(request, response) {
-  response.send('Ok');
-});
+// app.get('/', function(request, response) {
+//   response.status('Ok');
+// });
 
 app.get('/projects', function(request, response) {
   redisClient.hget('projects', function(error, data) {
