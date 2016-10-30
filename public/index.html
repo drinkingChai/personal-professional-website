@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="ProfessionalWebsite">
   <head>
     <meta charset="utf-8">
     <title>Wasif Zaman</title>
@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="styles/bootstrap-theme.css" media="screen" title="no title">
   </head>
   <body>
+
+
+
+    <button class="btn btn-default" ng-controller="ProjectIndexController" ng-click="test()">Test</button>
 
     <div ng-view></div>
 
@@ -20,12 +24,13 @@
 
     <!-- App -->
     <script src="assets/js/app.js" charset="utf-8"></script>
+    <script src="assets/js/routes.js" charset="utf-8"></script>
 
     <!-- Directives -->
 
 
     <!-- Controllers -->
-
+    <script src="assets/js/controllers/projectIndexController.js" charset="utf-8"></script>
 
     <!-- Services -->
     <script src="assets/js/services/project.js" charset="utf-8"></script>

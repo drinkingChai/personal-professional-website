@@ -11,7 +11,7 @@ var router = express.Router();
 
 router.route('/')
   .get(function(request, response) {
-    redisClient.hget('projects', function(error, data) {
+    redisClient.hgetall('projects', function(error, data) {
       response.status(200).json(data);
     });
   })
