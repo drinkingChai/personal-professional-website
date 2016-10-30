@@ -43,7 +43,11 @@ describe('Create new projects', function() {
 
 describe('Show project info', function() {
   before(function() {
-    testClient.hset('projects', 'Vagabond Knight', 'A Dragon Slaying Riches Taking Knight');
+    var testObj = {
+      "title": "Vagabond Knight",
+      "description": "A Dragon Slaying Riches Taking Knight"
+    }
+    testClient.lpush('projects', JSON.stringify(testObj));
   });
 
   after(function() {

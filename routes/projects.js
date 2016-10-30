@@ -11,13 +11,17 @@ var router = express.Router();
 
 router.route('/')
   .get(function(request, response) {
-    redisClient.hgetall('projects', function(error, data) {
+    redisClient.lrange('projects', 0, -1, function(error, data) {
       response.status(200).json(data);
     });
   })
   .post(parseUrlJSON, function(request, response) {
-    var newProject = request.body;
-    redisClient.hset('projects', newProject.title, newProject.description, function(error) {
+    var body = request.body;
+    var newProject = {
+      "title": body.title,
+      "description": body.description
+    }
+    redisClient.lpush('projects', JSON.stringify(newProject), function(error) {
       if (error) throw error;
       response.status(201).json(newProject.title);
     })
@@ -25,11 +29,21 @@ router.route('/')
 
 router.route('/:title')
   .get(function(request, response) {
-    redisClient.hget('projects', request.params.title, function(error, data) {
-      response.status(200).json(data);
-    });
+    var project,
+      searchTitle = request.params.title,
+      projects = redisClient.lrange('projects', 0, -1, function(error, data) {
+        if (error) throw error;
+      })
+    for (var i = 0; i < projects.length; i++) {
+      if (projects[i].title = searchTitle) {
+        project = projects[i];
+        break;
+      }
+    }
+    response.sendStatus(project ? 204 : 200);
   })
   .delete(function(request, response) {
+    // need to add DELETE
     redisClient.hdel('projects', request.params.title, function(error) {
       if (error) throw error;
       response.sendStatus(204);
