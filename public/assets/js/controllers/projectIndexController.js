@@ -3,6 +3,6 @@ angular.module('ProfessionalWebsite')
     $scope.projects = Project.get();
 
     $scope.test = function() {
-      console.log($scope.projects);
+      console.log(JSON.stringify($scope.projects));
     }
   });

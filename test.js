@@ -5,7 +5,7 @@ var redis = require('redis');
 var testClient = redis.createClient();
 
 testClient.select('profWebsiteTest'.length);
-testClient.flushdb();
+testClient.flushall();
 
 describe('Request to root path', function() {
   it('Returns HTML format', function(done) {
@@ -27,14 +27,16 @@ describe('Create new projects', function() {
   it('Returns a status code of 201', function(done) {
       request(app)
         .post('/projects')
-        .send('name=Vagabond+Knight&description=A+Dragon+Slaying+Riches+Taking+Knight')
+        .type('JSON')
+        .send('{"title": "Vagabond Knight", "description": "A Dragon Slaying Riches Taking Knight"}')
         .expect(201, done);
   });
 
   it('Inserts a second project', function(done) {
       request(app)
         .post('/projects')
-        .send('name=Bike+Builder&description=Mix+match+and+create+your+own+bike')
+        .type('JSON')
+        .send('{"title": "Bike Builder", "description": "Mix match and create your own bike"}')
         .expect(201, done);
   });
 });

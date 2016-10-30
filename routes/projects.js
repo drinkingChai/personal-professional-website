@@ -1,6 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var parseUrlencoded = bodyParser.urlencoded({ extended: false });
+var parseUrlJSON = bodyParser.json();
 
 var redis = require('redis');
 var redisClient = redis.createClient();
@@ -15,22 +15,22 @@ router.route('/')
       response.status(200).json(data);
     });
   })
-  .post(parseUrlencoded, function(request, response) {
+  .post(parseUrlJSON, function(request, response) {
     var newProject = request.body;
-    redisClient.hset('projects', newProject.name, newProject.description, function(error) {
+    redisClient.hset('projects', newProject.title, newProject.description, function(error) {
       if (error) throw error;
-      response.status(201).json(newProject.name);
+      response.status(201).json(newProject.title);
     })
   });
 
-router.route('/:name')
+router.route('/:title')
   .get(function(request, response) {
-    redisClient.hget('projects', request.params.name, function(error, data) {
+    redisClient.hget('projects', request.params.title, function(error, data) {
       response.status(200).json(data);
     });
   })
   .delete(function(request, response) {
-    redisClient.hdel('projects', request.params.name, function(error) {
+    redisClient.hdel('projects', request.params.title, function(error) {
       if (error) throw error;
       response.sendStatus(204);
     });
