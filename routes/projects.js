@@ -33,6 +33,7 @@ router.route('/:title')
       searchTitle = request.params.title,
       projects = redisClient.lrange('projects', 0, -1, function(error, data) {
         if (error) throw error;
+        return data; //?
       })
     for (var i = 0; i < projects.length; i++) {
       if (projects[i].title = searchTitle) {
