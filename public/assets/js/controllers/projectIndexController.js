@@ -10,8 +10,4 @@ angular.module('ProfessionalWebsite')
       $scope.projects = data;
     });
 
-    $scope.delete = function(project) {
-      Project.delete(project.title);
-      // console.log(project.title);
-    }
   });
