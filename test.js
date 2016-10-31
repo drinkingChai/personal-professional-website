@@ -24,6 +24,10 @@ describe('Request all projects', function() {
 });
 
 describe('Create new projects', function() {
+  after(function() {
+    testClient.flushall();
+  });
+
   it('Returns a status code of 201', function(done) {
       request(app)
         .post('/projects')
@@ -63,12 +67,16 @@ describe('Show project info', function() {
 
 describe('Deleting projects', function() {
   before(function() {
-    testClient.hset('projects', 'Vagabond Knight', 'A Dragon Slaying Riches Taking Knight');
+    var testObj = {
+      "title": "Vagabond Knight",
+      "description": "A Dragon Slaying Riches Taking Knight"
+    }
+    testClient.lpush('projects', JSON.stringify(testObj));
   });
 
-  after(function() {
-    testClient.flushall();
-  });
+  // after(function() {
+  //   testClient.flushall();
+  // });
 
   it('Returns a 204 status code', function(done) {
     request(app)

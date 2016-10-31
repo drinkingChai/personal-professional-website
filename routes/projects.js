@@ -29,25 +29,26 @@ router.route('/')
 
 router.route('/:title')
   .get(function(request, response) {
-    var project,
-      searchTitle = request.params.title,
-      projects = redisClient.lrange('projects', 0, -1, function(error, data) {
-        if (error) throw error;
-        return data; //?
-      })
-    for (var i = 0; i < projects.length; i++) {
-      if (projects[i].title = searchTitle) {
-        project = projects[i];
-        break;
+    redisClient.lrange('projects', 0, -1, function(error, data) {
+      if (error) throw error;
+
+      for (var i = 0, l = data.length, title = request.params.title; i < l; i++) {
+        if (JSON.parse(data[i]).title == title) response.status(200).json(data[i]);
       }
-    }
-    response.sendStatus(project ? 204 : 200);
+    });
   })
   .delete(function(request, response) {
-    // need to add DELETE
-    redisClient.hdel('projects', request.params.title, function(error) {
+    redisClient.lrange('projects', 0, -1, function(error, data) {
       if (error) throw error;
-      response.sendStatus(204);
+
+      for (var i = 0, l = data.length, title = request.params.title; i < l; i++) {
+        if (JSON.parse(data[i]).title == title) {
+          redisClient.lrem('projects', 1, data[i], function(error) {
+            if (error) throw error;
+            response.sendStatus(204);
+          });
+        }
+      }
     });
   });
 
