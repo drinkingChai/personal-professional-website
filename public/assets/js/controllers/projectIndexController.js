@@ -9,4 +9,9 @@ angular.module('ProfessionalWebsite')
     Project.query().$promise.then(function(data) {
       $scope.projects = data;
     });
+
+    $scope.delete = function(project) {
+      Project.delete(project.title);
+      // console.log(project.title);
+    }
   });

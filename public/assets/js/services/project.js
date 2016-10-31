@@ -1,6 +1,6 @@
 angular.module('ProfessionalWebsite')
   .factory('Project', function($resource, $http, $timeout, $q) {
-    return $resource('/projects', {}, {
+    return $resource('/projects/:title', {}, {
       query: {
         method: 'GET',
         isArray: true,
@@ -11,7 +11,7 @@ angular.module('ProfessionalWebsite')
           for (var i = 0, l = res.length; i < l; i++) {
             allProjects.push(JSON.parse(res[i]));
           }
-          
+
           return allProjects;
         }
       }

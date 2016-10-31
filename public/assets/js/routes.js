@@ -8,5 +8,9 @@ angular.module('ProfessionalWebsite')
       .when('/projects/new', {
         templateUrl: 'assets/templates/projects/new.html',
         controller: 'ProjectCreateController'
+      })
+      .when('/projects/:title', {
+        templateUrl: 'assets/templates/projects/show.html',
+        controller: 'ProjectShowController'
       });
   });
