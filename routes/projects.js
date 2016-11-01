@@ -23,12 +23,11 @@ router.route('/:id')
     Project.delete(request.params.id);
     response.sendStatus(204);
   })
-
-router.route('/:id/edit')
   .put(parseUrlJSON, function(request, response) {
-    request.body.id = request.params.id
+    request.body.id = request.params.id;
     Project.update(request.body);
     response.sendStatus(200);
   });
 
+  // router.route('/:id/edit')
 module.exports = router;

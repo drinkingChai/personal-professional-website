@@ -50,11 +50,11 @@ module.exports = {
   // @param {Object} project
   //
   update: function(project) {
-    var parseId = parseInt(project.id, 10);
+    project.id = parseInt(project.id, 10);
     for (var i = 0, l = projects.length; i < l; i++) {
-      if (projects[i].id === parseId) {
+      if (projects[i].id === project.id) {
         Object.assign(projects[i], project);
-        client.lset('projects', i, JSON.stringify(project), function(error) { if (error) return error; });
+        client.lset('projects', i, JSON.stringify(projects[i]), function(error) { if (error) return error; });
         break;
       }
     }

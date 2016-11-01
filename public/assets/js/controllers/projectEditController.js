@@ -1,13 +1,11 @@
 angular.module('ProfessionalWebsite')
   .controller('ProjectEditController', function(Project, $scope, $routeParams, $location) {
-    $scope.project = new Project;
-    Project.get({title: $routeParams.title}).$promise.then(function(data) {
-      Object.assign($scope.project, data);
-    });
+    $scope.project = Project.get({id: $routeParams.id});
 
     $scope.saveProject = function(project) {
-      project.$update().then(function() {
-        $location.path('/projects');
-      });
+      project.$update()
+        .then(function() {
+            $location.path('/projects');
+        });
     }
   });

@@ -9,11 +9,11 @@ angular.module('ProfessionalWebsite')
         templateUrl: 'assets/templates/projects/new.html',
         controller: 'ProjectCreateController'
       })
-      .when('/projects/:title', {
+      .when('/projects/:id', {
         templateUrl: 'assets/templates/projects/show.html',
         controller: 'ProjectShowController'
       })
-      .when('/projects/:title/edit', {
+      .when('/projects/:id/edit', {
         templateUrl: 'assets/templates/projects/edit.html',
         controller: 'ProjectEditController'
       });

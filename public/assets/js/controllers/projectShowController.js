@@ -1,12 +1,9 @@
 angular.module('ProfessionalWebsite')
   .controller('ProjectShowController', function(Project, $scope, $routeParams, $location) {
-    $scope.project = new Project;
-    Project.get({title: $routeParams.title}).$promise.then(function(data) {
-      Object.assign($scope.project, data);
-    });
+    $scope.project = Project.get({id: $routeParams.id});
 
     $scope.delete = function(project) {
-      project.$delete().then(function() {
+      project.$remove().then(function() {
         $location.path('/projects');
       })
     }

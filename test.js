@@ -86,7 +86,7 @@ describe('Updating projects', function() {
       .send('{"title": "Vagabond Knight", "description": "A Dragon Slaying Riches Taking Knight"}')
       .end(function(error, response) {
         request(app)
-          .put('/projects/2/edit')
+          .put('/projects/2')
           .type('JSON')
           .send('{"title": "Vagabond Knights", "description": "Now a band of knights >:D"}')
           .expect(200, done);
