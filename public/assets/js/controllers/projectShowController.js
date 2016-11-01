@@ -5,10 +5,7 @@ angular.module('ProfessionalWebsite')
     });
 
     $scope.delete = function() {
-      Project.delete({title: $routeParams.title}); //remove semicolon
-        // .then(function(error) {
-        //   if (error) throw error;
-        //   //$location
-        // });
+      Project.delete({title: $routeParams.title});
+      $location.path('/projects');
     }
   });

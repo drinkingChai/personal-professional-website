@@ -14,6 +14,9 @@ angular.module('ProfessionalWebsite')
 
           return allProjects;
         }
+      },
+      update: {
+        method: 'PUT'
       }
     });
 
