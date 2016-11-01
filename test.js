@@ -38,21 +38,11 @@ describe('Create new projects', function() {
 });
 
 describe('Show project info', function() {
-  var code;
-
-  beforeEach(function(done) {
-    setTimeout(function() {
-      code = 200;
-      done();
-    }, 50);
-  });
-
   before(function() {
-    var testObj = {
-      "title": "Vagabond Knight",
-      "description": "A Dragon Slaying Riches Taking Knight"
-    }
-    testClient.lpush('projects', JSON.stringify(testObj));
+    request(app)
+      .post('/projects')
+      .type('JSON')
+      .send('{"title": "Vagabond Knight", "description": "A Dragon Slaying Riches Taking Knight"}');
   });
 
   after(function() {
@@ -61,67 +51,46 @@ describe('Show project info', function() {
 
   it('Returns a status code of 200', function(done) {
     request(app)
-      .get('/projects/Vagabond Knight')
-      .expect(code, done);
+      .get('/projects/1')
+      .expect(200, done);
   });
 });
 
 describe('Deleting projects', function() {
-  var code;
-
-  beforeEach(function(done) {
-    setTimeout(function() {
-      code = 204;
-      done();
-    }, 50);
-  });
-
-  before(function() {
-    var testObj = {
-      "title": "Vagabond Knight",
-      "description": "A Dragon Slaying Riches Taking Knight"
-    }
-    testClient.lpush('projects', JSON.stringify(testObj));
-  });
-
   after(function() {
     testClient.flushall();
   });
 
   it('Returns a 204 status code', function(done) {
     request(app)
-      .delete('/projects/Vagabond Knight')
-      .expect(code, done);
-  });
+      .post('/projects')
+      .type('JSON')
+      .send('{"title": "Vagabond Knight", "description": "A Dragon Slaying Riches Taking Knight"}')
+      .end(function(error, response) {
+        request(app)
+          .delete('/projects/1')
+          .expect(204, done);
+      });
+    });
 });
 
 describe('Updating projects', function() {
-  var code;
-
-  beforeEach(function(done) {
-    setTimeout(function() {
-      code = 200;
-      done();
-    }, 50);
-  });
-
-  before(function() {
-    var testObj = {
-      "title": "Vagabond Knight",
-      "description": "A Dragon Slaying Riches Taking Knight"
-    }
-    testClient.lpush('projects', JSON.stringify(testObj));
-  });
-
   after(function() {
     testClient.flushall();
   });
 
   it('Returns a 200 satus code', function(done) {
     request(app)
-    .put('/projects/Vagabond Knight/edit')
-    .type('JSON')
-    .send('{"title": "Vagabond Knights", "description": "Now a band of knights >:D"}')
-    .expect(code, done);
+      .post('/projects')
+      .type('JSON')
+      .send('{"title": "Vagabond Knight", "description": "A Dragon Slaying Riches Taking Knight"}')
+      .end(function(error, response) {
+        request(app)
+          .put('/projects/2/edit')
+          .type('JSON')
+          .send('{"title": "Vagabond Knights", "description": "Now a band of knights >:D"}')
+          .expect(200, done);
+    });
+
   });
 });

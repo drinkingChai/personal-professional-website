@@ -31,17 +31,18 @@ module.exports = {
   //
   new: function(project) {
     lastId++;
-    note.id = lastId;
-    projects.push(note);
-    client.lpush('projects', note, function(error) { if (error) throw error; });
+    project.id = lastId;
+    projects.push(project);
+    client.lpush('projects', JSON.stringify(project), function(error) { if (error) throw error; });
   },
   //
   // Returns a project with the given Id
   // @param {Integer} id
   //
   get: function(id) {
+    var parseId = parseInt(id, 10);
     for (var i = 0, l = projects.length; i < l; i++) {
-      if (projects[i].id === id) return projects[i];
+      if (projects[i].id === parseId) return projects[i];
     }
   },
   //
@@ -49,8 +50,9 @@ module.exports = {
   // @param {Object} project
   //
   update: function(project) {
+    var parseId = parseInt(project.id, 10);
     for (var i = 0, l = projects.length; i < l; i++) {
-      if (projects[i].id === id) {
+      if (projects[i].id === parseId) {
         Object.assign(projects[i], project);
         client.lset('projects', i, JSON.stringify(project), function(error) { if (error) return error; });
         break;
@@ -62,10 +64,11 @@ module.exports = {
   // @param {Integer} id
   //
   delete: function(id) {
+    var parseId = parseInt(id, 10);
     for (var i = 0, l = projects.length; i < l; i++) {
-      if (projects[i].id === id) {
+      if (projects[i].id === parseId) {
+        client.lrem('projects', 1, JSON.stringify(projects[i]), function(error) { if (error) throw error; });
         projects.splice(i, 1);
-        redisClient.lrem('projects', 1, data[i], function(error) { if (error) throw error; });
         break;
       }
     }
