@@ -1,6 +1,6 @@
 angular.module('ProfessionalWebsite')
   .factory('Project', function($resource, $http, $timeout, $q) {
-    return $resource('/projects/:title', {}, {
+    return $resource('/projects/:title', {title: '@title'}, {
       query: {
         method: 'GET',
         isArray: true,
@@ -16,7 +16,12 @@ angular.module('ProfessionalWebsite')
         }
       },
       update: {
-        method: 'PUT'
+        method: 'PUT',
+        url: '/projects/:title/edit'
+      },
+      save: {
+        method: 'POST',
+        url: '/projects'
       }
     });
 

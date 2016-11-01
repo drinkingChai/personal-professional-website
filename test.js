@@ -100,7 +100,7 @@ describe('Updating projects', function() {
 
   beforeEach(function(done) {
     setTimeout(function() {
-      code = 201;
+      code = 200;
       done();
     }, 50);
   });
@@ -117,11 +117,11 @@ describe('Updating projects', function() {
     testClient.flushall();
   });
 
-  it('Returns a 201 satus code', function(done) {
+  it('Returns a 200 satus code', function(done) {
     request(app)
-    .put('/projects/Vagabond Knight')
+    .put('/projects/Vagabond Knight/edit')
     .type('JSON')
-    .send('{"title": "Vagabond Knight", "description": "Turned over a new leaf"}')
+    .send('{"title": "Vagabond Knights", "description": "Now a band of knights >:D"}')
     .expect(code, done);
   });
 });

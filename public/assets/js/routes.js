@@ -12,5 +12,9 @@ angular.module('ProfessionalWebsite')
       .when('/projects/:title', {
         templateUrl: 'assets/templates/projects/show.html',
         controller: 'ProjectShowController'
+      })
+      .when('/projects/:title/edit', {
+        templateUrl: 'assets/templates/projects/edit.html',
+        controller: 'ProjectEditController'
       });
   });

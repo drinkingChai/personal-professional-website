@@ -50,16 +50,20 @@ router.route('/:title')
         }
       }
     });
-  })
+  });
+
+router.route('/:title/edit')
   .put(parseUrlJSON, function(request, response) {
     redisClient.lrange('projects', 0, -1, function(error, data) {
       if (error) throw error;
 
+      // search through redis for object matching title
+      // if matches, update the index with the new object
       for (var i = 0, l = data.length, title = request.params.title; i < l; i++) {
         if (JSON.parse(data[i]).title == title) {
           redisClient.lset('projects', i, JSON.stringify(request.body), function(error) {
             if (error) throw error;
-            response.sendStatus(201);
+            response.sendStatus(200);
           });
         }
       }
