@@ -8,15 +8,15 @@ var lastId = 0,
 
 //
 // Parses through the redis database and
-// pushes data into the projects array
-// Sets lastId to the highest id of all the projects
+// pushes data into the tags array
+// Sets lastId to the highest id of all the tags
 //
 client.lrange('tags', 0, -1, function(error, tags) {
   if (error) throw error;
 
   for (var i = 0, l = tags.length; i < l; i++) {
     var tag = JSON.parse(tags[i]);
-    tags.push(project);
+    tags.push(tag);
     lastId = Math.max(lastId, tags.id);
   }
 });
@@ -29,48 +29,48 @@ module.exports = {
   // Add a new tag to database
   // @param {Object} tag
   //
-  new: function(tag) {
+  newTag: function(tag) {
     lastId++;
     tag.id = lastId;
     tags.push(tag);
-    client.lpush('projects', JSON.stringify(tag), function(error) { if (error) throw error; });
+    client.lpush('tags', JSON.stringify(tag), function(error) { if (error) throw error; });
   },
-  // //
-  // // Returns a project with the given Id
-  // // @param {Integer} id
-  // //
-  // get: function(id) {
-  //   var parseId = parseInt(id, 10);
-  //   for (var i = 0, l = projects.length; i < l; i++) {
-  //     if (projects[i].id === parseId) return projects[i];
-  //   }
-  // },
-  // //
-  // // Updates a project with new data
-  // // @param {Object} project
-  // //
-  // update: function(project) {
-  //   project.id = parseInt(project.id, 10);
-  //   for (var i = 0, l = projects.length; i < l; i++) {
-  //     if (projects[i].id === project.id) {
-  //       Object.assign(projects[i], project);
-  //       client.lset('projects', i, JSON.stringify(projects[i]), function(error) { if (error) return error; });
-  //       break;
-  //     }
-  //   }
-  // },
-  // //
-  // // Delete a project with the given Id
-  // // @param {Integer} id
-  // //
-  // delete: function(id) {
-  //   var parseId = parseInt(id, 10);
-  //   for (var i = 0, l = projects.length; i < l; i++) {
-  //     if (projects[i].id === parseId) {
-  //       client.lrem('projects', 1, JSON.stringify(projects[i]), function(error) { if (error) throw error; });
-  //       projects.splice(i, 1);
-  //       break;
-  //     }
-  //   }
-  // }
+  //
+  // Returns a tag with the given Id
+  // @param {Integer} id
+  //
+  getTag: function(id) {
+    var parseId = parseInt(id, 10);
+    for (var i = 0, l = tags.length; i < l; i++) {
+      if (tags[i].id === parseId) return tags[i];
+    }
+  },
+  //
+  // Delete a tag with the given Id
+  // @param {Integer} id
+  //
+  deleteTag: function(id) {
+    var parseId = parseInt(id, 10);
+    for (var i = 0, l = tags.length; i < l; i++) {
+      if (tags[i].id === parseId) {
+        client.lrem('tags', 1, JSON.stringify(tags[i]), function(error) { if (error) throw error; });
+        tags.splice(i, 1);
+        break;
+      }
+    }
+  }
+  //
+  // Updates a tag with new data
+  // @param {Object} tag
+  //
+  update: function(tag) {
+    tag.id = parseInt(tag.id, 10);
+    for (var i = 0, l = tags.length; i < l; i++) {
+      if (tags[i].id === tag.id) {
+        Object.assign(tags[i], tag);
+        client.lset('tags', i, JSON.stringify(tags[i]), function(error) { if (error) return error; });
+        break;
+      }
+    }
+  },
 }

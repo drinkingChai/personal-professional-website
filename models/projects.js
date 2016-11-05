@@ -1,4 +1,5 @@
 var redis = require('redis');
+var tags = require('./tags');
 var client = redis.createClient();
 
 client.select(('profWebsiteTest' || 'development').length);
@@ -69,6 +70,44 @@ module.exports = {
       if (projects[i].id === parseId) {
         client.lrem('projects', 1, JSON.stringify(projects[i]), function(error) { if (error) throw error; });
         projects.splice(i, 1);
+        break;
+      }
+    }
+  },
+  //
+  // Add a tag to the given project
+  // @param {Object} project
+  // @param {Object} tag
+  //
+  addTag: function(project, tag) {
+    var parseTagId = parseInt(tag.id, 10);
+    var parseId = parseInt(project.id, 10);
+    for (var i = 0, l = projects.length; i < l; i++) {
+      if (projects[i].id === project.id) {
+        projects.tags.push(parseTagId);
+        Object.assign(projects[i], project);
+        client.lset('projects', i, JSON.stringify(projects[i]), function(error) { if (error) return error; });
+        break;
+      }
+    }
+  },
+  //
+  // Remove a tag to the given project
+  // @param {Object} project
+  // @param {Object} tag
+  //
+  removeTag: function(project, tag) {
+    var parseTagId = parseInt(tag.id, 10);
+    var parseId = parseInt(project.id, 10);
+    for (var i = 0, l = projects.length; i < l; i++) {
+      if (projects[i].id === project.id) {
+        var tags = project[i].tags,
+          tagI = tags.indexOf(parseTagId);
+        if (tagI) {
+          tags.splice(tagI, 1);
+          Object.assign(projects[i], project);
+          client.lset('projects', i, JSON.stringify(projects[i]), function(error) { if (error) return error; });
+        }
         break;
       }
     }

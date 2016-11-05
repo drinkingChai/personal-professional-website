@@ -91,6 +91,5 @@ describe('Updating projects', function() {
           .send('{"title": "Vagabond Knights", "description": "Now a band of knights >:D"}')
           .expect(200, done);
     });
-
   });
 });
