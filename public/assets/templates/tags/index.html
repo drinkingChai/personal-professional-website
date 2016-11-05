@@ -1,0 +1,12 @@
+<div class="row">
+  <div ng-repeat="tag in tags" class="col-sm-6">
+    <h2>{{tag.name}}</h2>
+    <a class="btn btn-default" ng-href="" ng-click="delete(tag)">Delete</a>
+  </div>
+</div>
+
+<div class="row">
+  <label for="newTag">New Tag</label>
+  <input class="form-control" type="text" id="newTag" name="newTag" ng-model="tag.name">
+  <button type="button" name="newTag" ng-click="createTag(tag)">Add Tag</button>
+</div>

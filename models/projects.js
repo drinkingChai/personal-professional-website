@@ -131,11 +131,11 @@ module.exports = {
     return matched;
   }
   //
-  // Checks if project has the given tags
+  // Checks if project has the given categories
   // @param {Object} project
   // @param {Array} tags
   //
-  // hasCategories: function(project, categories) {
+  // matchCategories: function(project, categories) {
   //
   // }
 }

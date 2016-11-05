@@ -16,5 +16,9 @@ angular.module('ProfessionalWebsite')
       .when('/projects/:id/edit', {
         templateUrl: 'assets/templates/projects/edit.html',
         controller: 'ProjectEditController'
+      })
+      .when('/tags', {
+        templateUrl: 'assets/templates/tags/index.html',
+        controller: 'TagIndexController'
       });
   });
