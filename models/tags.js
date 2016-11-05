@@ -58,7 +58,7 @@ module.exports = {
         break;
       }
     }
-  }
+  },
   //
   // Updates a tag with new data
   // @param {Object} tag

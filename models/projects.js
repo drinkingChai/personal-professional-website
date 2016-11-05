@@ -1,3 +1,4 @@
+var _ = require('lodash');
 var redis = require('redis');
 var tags = require('./tags');
 var client = redis.createClient();
@@ -101,15 +102,40 @@ module.exports = {
     var parseId = parseInt(project.id, 10);
     for (var i = 0, l = projects.length; i < l; i++) {
       if (projects[i].id === project.id) {
-        var tags = project[i].tags,
-          tagI = tags.indexOf(parseTagId);
-        if (tagI) {
-          tags.splice(tagI, 1);
+        var projectTags = project[i].tags,
+          tagIndex = projectTags.indexOf(parseTagId);
+        if (tagIndex) {
+          tags.splice(tagIndex, 1);
           Object.assign(projects[i], project);
           client.lset('projects', i, JSON.stringify(projects[i]), function(error) { if (error) return error; });
         }
         break;
       }
     }
+  },
+  //
+  // Checks if project has the given tags
+  // @param {Object} project
+  // @param {Array of Objects} tags
+  //
+  matchTags: function(project, tags) {
+    var parseId = parseInt(project.id, 10),
+      parseTags = JSON.parse(tags).map(function(obj) { return obj.id; }),
+      matched = [];
+    for (var i = 0, l = projects.length; i < l; i++) {
+      if (projects[i].id === project.id &&
+        _.difference(parseTags, projects[i].tags).length === 0) {
+          matched.push(project[i]);
+      }
+    }
+    return matched;
   }
+  //
+  // Checks if project has the given tags
+  // @param {Object} project
+  // @param {Array} tags
+  //
+  // hasCategories: function(project, categories) {
+  //
+  // }
 }

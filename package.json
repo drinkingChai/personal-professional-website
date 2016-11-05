@@ -16,10 +16,11 @@
     "url": "https://github.com/drinkingChai/personal-professional-website/issues"
   },
   "dependencies": {
+    "body-parser": "~1.15.2",
     "express": "~4.14.0",
-    "redis": "~2.6.2",
+    "lodash": "^4.16.6",
     "node": "0.0.0",
-    "body-parser": "~1.15.2"
+    "redis": "~2.6.2"
   },
   "devDependencies": {
     "supertest": "~2.0.1",
