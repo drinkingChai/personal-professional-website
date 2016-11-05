@@ -93,3 +93,88 @@ describe('Updating projects', function() {
     });
   });
 });
+
+//
+// End project testing
+//
+// *****************************************************************************
+//
+// Start tag testing
+//
+describe('Request all tags', function() {
+  it('Returns a 200 status code', function(done) {
+    request(app)
+      .get('/tags')
+      .expect(200, done);
+  });
+});
+
+describe('Create new tags', function() {
+  after(function() {
+    testClient.flushall();
+  });
+
+  it('Returns a status code of 201', function(done) {
+      request(app)
+        .post('/tags')
+        .type('JSON')
+        .send('{"name": "website"}')
+        .expect(201, done);
+  });
+});
+
+describe('Show tag info', function() {
+  after(function() {
+    testClient.flushall();
+  });
+
+  it('Returns a status code of 200', function(done) {
+    request(app)
+      .post('/tags')
+      .type('JSON')
+      .send('{"name": "website"}')
+      .end(function(error, response) {
+        request(app)
+        .get('/tags/1')
+        .expect(200, done);
+      });
+  });
+});
+
+describe('Delete tag', function() {
+  after(function() {
+    testClient.flushall();
+  });
+
+  it('Returns a 204 status code', function(done) {
+    request(app)
+      .post('/tags')
+      .type('JSON')
+      .send('{"name": "website"}')
+      .end(function(error, response) {
+        request(app)
+        .delete('/tags/1')
+        .expect(204, done);
+      });
+    });
+});
+
+describe('Updating tags', function() {
+  after(function() {
+    testClient.flushall();
+  });
+
+  it('Returns a 200 satus code', function(done) {
+    request(app)
+      .post('/tags')
+      .type('JSON')
+      .send('{"name": "website"}')
+      .end(function(error, response) {
+        request(app)
+          .put('/tags/2')
+          .type('JSON')
+          .send('{"name": "webapp"}')
+          .expect(200, done);
+    });
+  });
+});

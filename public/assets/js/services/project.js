@@ -1,5 +1,5 @@
 angular.module('ProfessionalWebsite')
-  .factory('Project', function($resource, $http, $timeout, $q) {
+  .factory('Project', function($resource) {
     return $resource('/projects/:id', {id: '@id'}, {
       update: {
         method: 'PUT'

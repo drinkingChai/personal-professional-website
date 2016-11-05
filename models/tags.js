@@ -22,14 +22,14 @@ client.lrange('tags', 0, -1, function(error, tags) {
 });
 
 module.exports = {
-  showTags: function() {
+  all: function() {
     return tags;
   },
   //
   // Add a new tag to database
   // @param {Object} tag
   //
-  newTag: function(tag) {
+  new: function(tag) {
     lastId++;
     tag.id = lastId;
     tags.push(tag);
@@ -39,7 +39,7 @@ module.exports = {
   // Returns a tag with the given Id
   // @param {Integer} id
   //
-  getTag: function(id) {
+  get: function(id) {
     var parseId = parseInt(id, 10);
     for (var i = 0, l = tags.length; i < l; i++) {
       if (tags[i].id === parseId) return tags[i];
@@ -49,7 +49,7 @@ module.exports = {
   // Delete a tag with the given Id
   // @param {Integer} id
   //
-  deleteTag: function(id) {
+  delete: function(id) {
     var parseId = parseInt(id, 10);
     for (var i = 0, l = tags.length; i < l; i++) {
       if (tags[i].id === parseId) {
@@ -67,7 +67,6 @@ module.exports = {
     tag.id = parseInt(tag.id, 10);
     for (var i = 0, l = tags.length; i < l; i++) {
       if (tags[i].id === tag.id) {
-        Object.assign(tags[i], tag);
         client.lset('tags', i, JSON.stringify(tags[i]), function(error) { if (error) return error; });
         break;
       }
