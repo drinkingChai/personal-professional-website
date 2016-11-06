@@ -11,13 +11,13 @@ var lastId = 0,
 // pushes data into the tags array
 // Sets lastId to the highest id of all the tags
 //
-client.lrange('tags', 0, -1, function(error, tags) {
+client.lrange('tags', 0, -1, function(error, dbTags) {
   if (error) throw error;
 
-  for (var i = 0, l = tags.length; i < l; i++) {
-    var tag = JSON.parse(tags[i]);
+  for (var i = 0, l = dbTags.length; i < l; i++) {
+    var tag = JSON.parse(dbTags[i]);
     tags.push(tag);
-    lastId = Math.max(lastId, tags.id);
+    lastId = Math.max(lastId, tag.id);
   }
 });
 
