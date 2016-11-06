@@ -23,6 +23,15 @@ client.lrange('projects', 0, -1, function(error, data) {
   }
 });
 
+var searchById = function(id) {
+  var parseId = parseInt(id, 10);
+  for (var i = 0, l = projects.length; i < l; i++) {
+    if (projects[i].id === parseId) {
+      return {value: projects[i], index: i};
+    }
+  }
+}
+
 module.exports = {
   all: function() {
     return projects;
@@ -42,38 +51,26 @@ module.exports = {
   // @param {Integer} id
   //
   get: function(id) {
-    var parseId = parseInt(id, 10);
-    for (var i = 0, l = projects.length; i < l; i++) {
-      if (projects[i].id === parseId) return projects[i];
-    }
+    return searchById(id).value;
   },
   //
   // Updates a project with new data
   // @param {Object} project
   //
   update: function(project) {
-    project.id = parseInt(project.id, 10);
-    for (var i = 0, l = projects.length; i < l; i++) {
-      if (projects[i].id === project.id) {
-        Object.assign(projects[i], project);
-        client.lset('projects', i, JSON.stringify(projects[i]), function(error) { if (error) return error; });
-        break;
-      }
-    }
+    project.id = parseInt(project.id, 10)
+    var _project = searchById(project.id);
+    Object.assign(_project.value, project);
+    client.lset('projects', _project.index, JSON.stringify(_project.value), function(error) { if (error) return error; });
   },
   //
   // Delete a project with the given Id
   // @param {Integer} id
   //
   delete: function(id) {
-    var parseId = parseInt(id, 10);
-    for (var i = 0, l = projects.length; i < l; i++) {
-      if (projects[i].id === parseId) {
-        client.lrem('projects', 1, JSON.stringify(projects[i]), function(error) { if (error) throw error; });
-        projects.splice(i, 1);
-        break;
-      }
-    }
+    var _project = searchById(id);
+    client.lrem('projects', 1, JSON.stringify(_project.value), function(error) { if (error) throw error; });
+    projects.splice(_project.i, 1);
   },
   //
   // Add a tag to the given project
@@ -81,16 +78,21 @@ module.exports = {
   // @param {Object} tag
   //
   addTag: function(project, tag) {
-    var parseTagId = parseInt(tag.id, 10);
+    var parseTagName = parseInt(tag.name, 10);
     var parseId = parseInt(project.id, 10);
-    for (var i = 0, l = projects.length; i < l; i++) {
-      if (projects[i].id === project.id) {
-        projects.tags.push(parseTagId);
-        Object.assign(projects[i], project);
-        client.lset('projects', i, JSON.stringify(projects[i]), function(error) { if (error) return error; });
-        break;
-      }
-    }
+
+
+
+    // var parseTagId = parseInt(tag.id, 10);
+    // var parseId = parseInt(project.id, 10);
+    // for (var i = 0, l = projects.length; i < l; i++) {
+    //   if (projects[i].id === project.id) {
+    //     projects.tags.push(parseTagId);
+    //     Object.assign(projects[i], project);
+    //     client.lset('projects', i, JSON.stringify(projects[i]), function(error) { if (error) return error; });
+    //     break;
+    //   }
+    // }
   },
   //
   // Remove a tag to the given project
