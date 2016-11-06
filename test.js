@@ -158,23 +158,3 @@ describe('Delete tag', function() {
       });
     });
 });
-
-describe('Updating tags', function() {
-  after(function() {
-    testClient.flushall();
-  });
-
-  it('Returns a 200 satus code', function(done) {
-    request(app)
-      .post('/tags')
-      .type('JSON')
-      .send('{"name": "website"}')
-      .end(function(error, response) {
-        request(app)
-          .put('/tags/2')
-          .type('JSON')
-          .send('{"name": "webapp"}')
-          .expect(200, done);
-    });
-  });
-});
