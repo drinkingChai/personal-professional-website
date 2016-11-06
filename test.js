@@ -123,24 +123,6 @@ describe('Create new tags', function() {
   });
 });
 
-describe('Show tag info', function() {
-  after(function() {
-    testClient.flushall();
-  });
-
-  it('Returns a status code of 200', function(done) {
-    request(app)
-      .post('/tags')
-      .type('JSON')
-      .send('{"name": "website"}')
-      .end(function(error, response) {
-        request(app)
-        .get('/tags/1')
-        .expect(200, done);
-      });
-  });
-});
-
 describe('Delete tag', function() {
   after(function() {
     testClient.flushall();

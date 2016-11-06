@@ -11,9 +11,9 @@
     </fieldset>
 
     <div class="">
-      <ul>
-        <li ng-repeat="tag in tags">{{tag.name}}</li>
-      </ul>
+      <div class="checkbox" ng-repeat="tag in tags">
+        <label><input type="checkbox" value="" ng-model="project.tags[tag.name]">{{tag.name}}</label>
+      </div>
     </div>
 
     <fieldset class="form-group">
