@@ -16,17 +16,9 @@ router.route('/')
   });
 
 router.route('/:id')
-  .get(function(request, response) {
-    response.status(200).json(Tag.get(request.params.id));
-  })
   .delete(function(request, response) {
     Tag.delete(request.params.id);
     response.sendStatus(204);
-  })
-  .put(parseUrlJSON, function(request, response) {
-    request.body.id = request.params.id;
-    Tag.update(request.body);
-    response.sendStatus(200);
   });
 
   // router.route('/:id/edit')

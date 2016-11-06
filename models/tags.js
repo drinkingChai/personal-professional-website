@@ -36,16 +36,6 @@ module.exports = {
     client.lpush('tags', JSON.stringify(tag), function(error) { if (error) throw error; });
   },
   //
-  // Returns a tag with the given Id
-  // @param {Integer} id
-  //
-  get: function(id) {
-    var parseId = parseInt(id, 10);
-    for (var i = 0, l = tags.length; i < l; i++) {
-      if (tags[i].id === parseId) return tags[i];
-    }
-  },
-  //
   // Delete a tag with the given Id
   // @param {Integer} id
   //
@@ -55,19 +45,6 @@ module.exports = {
       if (tags[i].id === parseId) {
         client.lrem('tags', 1, JSON.stringify(tags[i]), function(error) { if (error) throw error; });
         tags.splice(i, 1);
-        break;
-      }
-    }
-  },
-  //
-  // Updates a tag with new data
-  // @param {Object} tag
-  //
-  update: function(tag) {
-    tag.id = parseInt(tag.id, 10);
-    for (var i = 0, l = tags.length; i < l; i++) {
-      if (tags[i].id === tag.id) {
-        client.lset('tags', i, JSON.stringify(tags[i]), function(error) { if (error) return error; });
         break;
       }
     }
