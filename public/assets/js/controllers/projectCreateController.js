@@ -5,7 +5,7 @@ angular.module('ProfessionalWebsite')
     $scope.tags = Tag.query();
     $scope.createTag = function(tag) {
       tag.$save();
-      $scope.tags.append(tag);
+      $scope.tags = Tag.query();
       $scope.tag = new Tag();
     }
     $scope.saveProject = function(project) {

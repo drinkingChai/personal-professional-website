@@ -3,8 +3,7 @@
   <p>{{project.description}}</p>
 
   <ul>
-    <li ng-repeat="(tag, value) in project.tags" ng-show="value">{{tag}}
-    </li>
+    <li ng-repeat="(tag, value) in project.tags" ng-show="value">{{tag}}</li>
   </ul>
 
   <a class="btn btn-default" ng-href="" ng-click="delete(project)">Delete</a>
