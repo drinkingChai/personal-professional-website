@@ -78,9 +78,15 @@ module.exports = {
   // @param {Object} tag
   //
   addTag: function(project, tag) {
-    var parseTagName = parseInt(tag.name, 10);
-    var parseId = parseInt(project.id, 10);
+    var search = searchById(project.id),
+      _project = search.value,
+      i = search.index,
+      tagName = tag.name;
 
+    if (!_project.tags) _project.tags = [];
+    _project.tags.push({tagName: true});
+    Object.assign(_project.value, project);
+    client.lset('projects', _project.index, JSON.stringify(_project.value), function(error) { if (error) return error; });
 
 
     // var parseTagId = parseInt(tag.id, 10);
@@ -100,20 +106,28 @@ module.exports = {
   // @param {Object} tag
   //
   removeTag: function(project, tag) {
-    var parseTagId = parseInt(tag.id, 10);
-    var parseId = parseInt(project.id, 10);
-    for (var i = 0, l = projects.length; i < l; i++) {
-      if (projects[i].id === project.id) {
-        var projectTags = project[i].tags,
-          tagIndex = projectTags.indexOf(parseTagId);
-        if (tagIndex) {
-          tags.splice(tagIndex, 1);
-          Object.assign(projects[i], project);
-          client.lset('projects', i, JSON.stringify(projects[i]), function(error) { if (error) return error; });
-        }
-        break;
-      }
-    }
+    var search = searchById(project.id),
+      _project = search.value,
+      i = search.index;
+
+    _project.tags[tag.name] = false;
+    Object.assign(_project.value, project);
+    client.lset('projects', _project.index, JSON.stringify(_project.value), function(error) { if (error) return error; });
+
+    // var parseTagId = parseInt(tag.id, 10);
+    // var parseId = parseInt(project.id, 10);
+    // for (var i = 0, l = projects.length; i < l; i++) {
+    //   if (projects[i].id === project.id) {
+    //     var projectTags = project[i].tags,
+    //       tagIndex = projectTags.indexOf(parseTagId);
+    //     if (tagIndex) {
+    //       tags.splice(tagIndex, 1);
+    //       Object.assign(projects[i], project);
+    //       client.lset('projects', i, JSON.stringify(projects[i]), function(error) { if (error) return error; });
+    //     }
+    //     break;
+    //   }
+    // }
   },
   //
   // Checks if project has the given tags
