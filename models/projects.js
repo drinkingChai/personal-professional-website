@@ -1,6 +1,5 @@
 var _ = require('lodash');
 var redis = require('redis');
-var tags = require('./tags');
 var client = redis.createClient();
 
 client.select(('profWebsiteTest' || 'development').length);

@@ -1,4 +1,5 @@
 var redis = require('redis');
+var projects = require('./projects');
 var client = redis.createClient();
 
 client.select(('profWebsiteTest' || 'development').length);
@@ -36,17 +37,24 @@ module.exports = {
     client.lpush('tags', JSON.stringify(tag), function(error) { if (error) throw error; });
   },
   //
-  // Delete a tag with the given Id
+  // Delete a tag with the given Id and delete it from all projects
   // @param {Integer} id
   //
   delete: function(id) {
-    var parseId = parseInt(id, 10);
+    var parseId = parseInt(id, 10),
+      tagRemovedName;
     for (var i = 0, l = tags.length; i < l; i++) {
       if (tags[i].id === parseId) {
+        tagRemovedName = tags[i].name;
         client.lrem('tags', 1, JSON.stringify(tags[i]), function(error) { if (error) throw error; });
         tags.splice(i, 1);
         break;
       }
+    }
+    var _projects = projects.all();
+    for (var i = 0, l = _projects.length; i < l; i++) {
+      delete _projects[i].tags[tagRemovedName];
+      client.lset('projects', i, JSON.stringify(_projects[i]), function(error) { if (error) return error; });
     }
   }
 }
