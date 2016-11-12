@@ -1,6 +1,9 @@
 angular.module('ProfessionalWebsite')
   .config(function($routeProvider) {
     $routeProvider
+      .when('/', {
+        templateUrl: 'assets/templates/home.html'
+      })
       .when('/projects', {
         templateUrl: 'assets/templates/projects/index.html',
         controller: "ProjectIndexController"
@@ -20,5 +23,8 @@ angular.module('ProfessionalWebsite')
       .when('/tags', {
         templateUrl: 'assets/templates/tags/index.html',
         controller: 'TagIndexController'
+      })
+      .otherwise({
+        redirectTo: '/'
       });
   });
