@@ -5,17 +5,27 @@
     <title>Wasif Zaman</title>
     <link rel="stylesheet" href="styles/bootstrap.css" media="screen" title="no title">
     <link rel="stylesheet" href="styles/bootstrap-theme.css" media="screen" title="no title">
+    <link rel="stylesheet" href="styles/font-awesome.css" media="screen" title="no title">
+    <link rel="stylesheet" href="styles/style.css" media="screen" title="no title">
   </head>
   <body>
 
 
-    <!-- <button class="btn btn-default" ng-controller="ProjectIndexController" ng-click="test()">Test</button> -->
+    <!-- Header -->
     <nav class="navbar navbar-default">
       <pw-page-nav></pw-page-nav>
     </nav>
 
+    <!-- Main -->
+    <main>
+      <div ng-view></div>
+    </main>
 
-    <div ng-view></div>
+    <!-- Footer -->
+    <footer>
+      <pw-page-footer></pw-page-footer>
+    </footer>
+
 
 
     <!-- Vendor -->
@@ -32,6 +42,7 @@
 
     <!-- Directives -->
     <script src="assets/js/directives/pwPageNav.js" charset="utf-8"></script>
+    <script src="assets/js/directives/pwPageFooter.js" charset="utf-8"></script>
 
     <!-- Controllers -->
     <script src="assets/js/controllers/projectIndexController.js" charset="utf-8"></script>
