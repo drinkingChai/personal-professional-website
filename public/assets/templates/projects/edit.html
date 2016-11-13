@@ -1,27 +1,10 @@
 <div class="">
-  <form >
-    <fieldset class="form-group">
-      <label for="title">Title</label>
-      <input class="form-control" type="text" id="title" name="title" ng-model="project.title">
-    </fieldset>
+  <form name="form">
+    <pw-project-required-fields></pw-project-required-fields>
+    <pw-tag-module></pw-tag-module>
 
-    <fieldset class="form-group">
-      <label for="description">Description</label>
-      <input class="form-control" type="text" id="description" name="description" ng-model="project.description">
-    </fieldset>
-
-    <div class="">
-      <div class="checkbox" ng-repeat="tag in tags">
-        <label><input type="checkbox" value="" ng-model="project.tags[tag.name]">{{tag.name}}</label>
-      </div>
-    </div>
-
-    <fieldset class="form-group">
-      <label for="newTag">New Tag</label>
-      <input class="form-control" type="text" id="newTag" name="newTag" ng-model="tag.name">
-      <button type="button" name="newTag" ng-click="createTag(tag)">Add Tag</button>
-    </fieldset>
-
-    <input type="submit" class="btn btn-default" ng-click="saveProject(project)">
+    <input type="submit" class="btn btn-default" ng-click="form.$valid && saveProject(project)">
+    <a type="submit" class="btn btn-default" href="#/projects">Cancel</a>
+    <a class="btn btn-danger" ng-href="" ng-click="delete(project)">Delete</a>
   </form>
 </div>

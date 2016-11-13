@@ -14,4 +14,9 @@ angular.module('ProfessionalWebsite')
             $location.path('/projects');
         });
     }
+    $scope.delete = function(project) {
+      project.$remove().then(function() {
+        $location.path('/projects');
+      })
+    }
   });

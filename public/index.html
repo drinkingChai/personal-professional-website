@@ -12,13 +12,15 @@
 
 
     <!-- Header -->
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-static-top">
       <pw-page-nav></pw-page-nav>
     </nav>
 
     <!-- Main -->
     <main>
-      <div ng-view></div>
+      <div class="container">
+        <div ng-view></div>
+      </div>
     </main>
 
     <!-- Footer -->
@@ -43,6 +45,8 @@
     <!-- Directives -->
     <script src="assets/js/directives/pwPageNav.js" charset="utf-8"></script>
     <script src="assets/js/directives/pwPageFooter.js" charset="utf-8"></script>
+    <script src="assets/js/directives/pwTagModule.js" charset="utf-8"></script>
+    <script src="assets/js/directives/pwProjectRequiredFields.js" charset="utf-8"></script>
 
     <!-- Controllers -->
     <script src="assets/js/controllers/projectIndexController.js" charset="utf-8"></script>

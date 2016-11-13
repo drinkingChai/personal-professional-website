@@ -1,0 +1,11 @@
+<div class="">
+  <div class="checkbox" ng-repeat="tag in tags">
+    <label><input type="checkbox" value="" ng-model="project.tags[tag.name]">{{tag.name}}</label>
+  </div>
+
+  <fieldset class="form-group">
+    <label for="newTag">New Tag</label>
+    <input class="form-control" type="text" id="newTag" name="newTag" ng-model="tag.name">
+    <button class="btn btn-default" type="button" name="newTag" ng-click="tag.name && createTag(tag)">Add Tag</button>
+  </fieldset>
+</div>
