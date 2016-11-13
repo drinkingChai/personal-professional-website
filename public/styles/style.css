@@ -6,6 +6,23 @@ footer, .home {
   float: right;
 }
 
+/* Nav start */
+nav {
+  background-color: hsla(360, 100%, 62%, 1);
+}
+
+nav a {
+  color: #fff;
+}
+
+nav.navbar {
+  margin-bottom: 0;
+}
+
+
+/* Nav end */
+
+
 /* Home start */
 main .container-fluid {
   padding: 0;
@@ -27,16 +44,25 @@ main .container-fluid {
   border-radius: 0;
   padding-top: 20%;
   padding-bottom: 20%;
+
+  margin-bottom: 0;
 }
 
-/*.home::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background: rgba(0,0,0,0.6);
-}*/
-
 /* Home end */
+
+
+/* Footer start */
+footer {
+  background-color: hsla(0, 100%, 38%, 1);
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+footer, footer a {
+  color: #fff;
+}
+
+footer p {
+  margin-top: 10px;
+}
+/* Footer end */
