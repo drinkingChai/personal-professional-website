@@ -1,18 +1,20 @@
-<div class="row">
-  <div class="col-md-12">
-    <div ng-repeat="tag in tags" class="col-sm-6">
-      <h2>{{tag.name}}</h2>
-      <a class="btn btn-default" ng-href="" ng-click="delete(tag)">Delete</a>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div ng-repeat="tag in tags" class="col-sm-6">
+        <h2>{{tag.name}}</h2>
+        <a class="btn btn-default" ng-href="" ng-click="delete(tag)">Delete</a>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="row">
-  <div class="col-md-12">
-    <form class="">
-      <label for="newTag">New Tag</label>
-      <input class="form-control" type="text" id="newTag" name="newTag" ng-model="tag.name">
-      <input type="submit" name="newTag" ng-click="createTag(tag)"></input>
-    </form>
+  <div class="row">
+    <div class="col-md-12">
+      <form class="">
+        <label for="newTag">New Tag</label>
+        <input class="form-control" type="text" id="newTag" name="newTag" ng-model="tag.name">
+        <input type="submit" name="newTag" ng-click="createTag(tag)"></input>
+      </form>
+    </div>
   </div>
 </div>
