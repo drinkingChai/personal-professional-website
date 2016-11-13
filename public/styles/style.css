@@ -11,8 +11,15 @@ nav {
   background-color: hsla(360, 100%, 62%, 1);
 }
 
-nav a {
+nav a,
+nav a:hover,
+nav a:focus {
   color: #fff;
+}
+
+.nav li a:hover,
+.nav li a:focus {
+  background-color: hsla(0, 100%, 38%, 1);
 }
 
 nav.navbar {
@@ -48,6 +55,23 @@ main .container-fluid {
   margin-bottom: 0;
 }
 
+.home a {
+  padding: 15px 25px;
+  margin-top: 10px;
+  font-size: 20px;
+  color: #fff;
+  border: 2px #fff solid;
+  border-radius: 0;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.4));
+}
+
+.home a:hover,
+.home a:focus {
+  color: hsla(0, 100%, 38%, 1);
+  border-color: hsla(0, 100%, 38%, 1);
+}
 /* Home end */
 
 
@@ -58,11 +82,22 @@ footer {
   padding-bottom: 20px;
 }
 
-footer, footer a {
+footer,
+footer a {
   color: #fff;
+}
+
+footer a:hover,
+footer a:focus {
+  color: hsla(360, 100%, 23%, 1);
 }
 
 footer p {
   margin-top: 10px;
+}
+
+footer p a:hover,
+footer p a:focus {
+  text-decoration: none;
 }
 /* Footer end */
