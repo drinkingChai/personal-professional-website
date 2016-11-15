@@ -29,6 +29,26 @@ nav.navbar {
 
 /* Nav end */
 
+/* Tags */
+.tag {
+  padding: 2px 4px;
+  margin-right: 2px;
+  background-color: hsla(200, 100%, 50%, 1);
+  color: #fff;
+  border-radius: 10%;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+/* Project index start */
+
+.search-container, .tag-container {
+  margin-bottom: 10px;
+}
+
+
+/* Project index end */
+
 
 /* Home start */
 main .container-fluid {
