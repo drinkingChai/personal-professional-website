@@ -3,20 +3,38 @@
 </ul> -->
 
 <div class="container">
+  <!-- Search -->
+  <div class="input-group search-container">
+    <input class="form-control" type="search" placeholder="Search...">
+    <span class="input-group-btn">
+      <button class="btn btn-default" type="button" name="project-search">
+        <i class="fa fa-search" aria-hidden="true"></i>
+      </button>
+    </span>
+  </div>
+
+  <!-- Tags -->
+  <div class="tags-container">
+    <a class="btn tag" ng-repeat="tag in tags">{{tag.name}}</a>
+  </div>
+
+
+
   <div class="row" ng-repeat="project in projects" >
     <!-- placeholder Project thumbnail -->
-    <!-- <div class="col-md-4 hidden-sm">
-    <figure>
+    <div class="col-md-4 hidden-sm">
+      <figure>
         <img src="" alt="" />
       </figure>
-    </div> -->
+    </div>
 
-    <div class="col-md-12">
+    <div class="col-md-8">
       <h2>{{project.title}}</h2>
       <p>{{project.description}}</p>
-      <a class="btn btn-danger" ng-href="{{project.url}}">View Live Demo</a>
-      <!-- placeholder List of tags -->
+      <p><a class="btn tag" ng-repeat="(tag, value) in project.tags">{{tag}}</a></p>
+
       <!-- placeholder List of categories -->
+      <a class="btn btn-danger" ng-href="{{project.url}}">View Live Demo</a>
     </div>
 
     <!-- Edit options -->
