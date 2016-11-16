@@ -18,7 +18,8 @@
     <a class="btn tag" ng-repeat="tag in tags">{{tag.name}}</a>
   </div>
 
-
+  <!-- New project (h) -->
+  <a href="#/projects/new" class="btn btn-danger">New Project</a>
 
   <div class="row" ng-repeat="project in projects" >
     <!-- placeholder Project thumbnail -->
@@ -31,7 +32,7 @@
     <div class="col-md-8">
       <h2>{{project.title}}</h2>
       <p>{{project.description}}</p>
-      <p><a class="btn tag" ng-repeat="(tag, value) in project.tags">{{tag}}</a></p>
+      <p><a class="btn tag" ng-repeat="(tag, value) in project.tags" ng-show="value">{{tag}}</a></p>
 
       <!-- placeholder List of categories -->
       <a class="btn btn-danger" ng-href="{{project.url}}">View Live Demo</a>

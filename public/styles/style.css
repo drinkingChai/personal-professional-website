@@ -2,8 +2,9 @@ footer, .home {
   text-align: center;
 }
 
-.edit-options {
-  float: right;
+main .container {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 /* Nav start */
@@ -42,10 +43,13 @@ nav.navbar {
 
 /* Project index start */
 
-.search-container, .tag-container {
+.search-container, .tags-container {
   margin-bottom: 10px;
 }
 
+.edit-options {
+  float: right;
+}
 
 /* Project index end */
 
