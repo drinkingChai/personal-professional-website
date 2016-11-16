@@ -69,6 +69,6 @@ module.exports = {
   delete: function(id) {
     var _project = searchById(id);
     client.lrem('projects', 1, JSON.stringify(_project.value), function(error) { if (error) throw error; });
-    projects.splice(_project.i, 1);
+    projects.splice(_project.index, 1);
   }
 }
