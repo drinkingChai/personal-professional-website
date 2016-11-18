@@ -5,7 +5,7 @@
 <div class="container">
   <!-- Search -->
   <div class="input-group search-container">
-    <input class="form-control" type="search" placeholder="Search...">
+    <input class="form-control" type="search" placeholder="Search..." ng-model="search.$">
     <span class="input-group-btn">
       <button class="btn btn-default" type="button" name="project-search">
         <i class="fa fa-search" aria-hidden="true"></i>
@@ -21,7 +21,7 @@
   <!-- New project (h) -->
   <a href="#/projects/new" class="btn btn-danger">New Project</a>
 
-  <div class="row" ng-repeat="project in projects" >
+  <div class="row" ng-repeat="project in projects | filter:search" >
     <!-- placeholder Project thumbnail -->
     <div class="col-md-4 hidden-sm">
       <figure>
