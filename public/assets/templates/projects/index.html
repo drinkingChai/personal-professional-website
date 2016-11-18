@@ -18,14 +18,12 @@
     <a class="btn tag" ng-repeat="tag in tags">{{tag.name}}</a>
   </div>
 
-  <!-- New project (h) -->
-  <a href="#/projects/new" class="btn btn-danger">New Project</a>
-
+  <!-- List of projects -->
   <div class="row" ng-repeat="project in projects | tagFilter:search.tags" >
     <!-- placeholder Project thumbnail -->
     <div class="col-md-4 hidden-sm">
       <figure>
-        <img src="" alt="" />
+        <img ng-src="project.thumbnail" alt="" />
       </figure>
     </div>
 

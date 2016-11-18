@@ -24,6 +24,9 @@ angular.module('ProfessionalWebsite')
         templateUrl: 'assets/templates/tags/index.html',
         controller: 'TagIndexController'
       })
+      .when('/admin', {
+        templateUrl: 'assets/templates/admin.html'
+      })
       .otherwise({
         redirectTo: '/'
       });
