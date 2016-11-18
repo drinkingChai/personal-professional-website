@@ -64,7 +64,7 @@ main .container-fluid {
   background: linear-gradient(
       rgba(0, 0, 0, 0.6),
       rgba(0, 0, 0, 0.6)
-    ), url('../assets/images/cover.jpg') top left no-repeat;
+    ), url('../assets/images/cover.jfif') top left no-repeat;
   background-color: hsla(0, 0%, 30%, 1);
   background-size: 100%;
 

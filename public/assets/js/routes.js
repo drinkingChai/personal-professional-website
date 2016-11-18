@@ -4,6 +4,16 @@ angular.module('ProfessionalWebsite')
       .when('/', {
         templateUrl: 'assets/templates/home.html'
       })
+      .when('/tags', {
+        templateUrl: 'assets/templates/tags/index.html',
+        controller: 'TagIndexController'
+      })
+      .when('/admin', {
+        templateUrl: 'assets/templates/admin.html'
+      })
+      .when('/about', {
+        templateUrl: 'assets/templates/about.html'
+      })
       .when('/projects', {
         templateUrl: 'assets/templates/projects/index.html',
         controller: "ProjectIndexController"
@@ -19,13 +29,6 @@ angular.module('ProfessionalWebsite')
       .when('/projects/:id/edit', {
         templateUrl: 'assets/templates/projects/edit.html',
         controller: 'ProjectEditController'
-      })
-      .when('/tags', {
-        templateUrl: 'assets/templates/tags/index.html',
-        controller: 'TagIndexController'
-      })
-      .when('/admin', {
-        templateUrl: 'assets/templates/admin.html'
       })
       .otherwise({
         redirectTo: '/'
