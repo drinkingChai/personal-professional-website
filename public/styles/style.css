@@ -23,6 +23,10 @@ nav a:focus {
   background-color: hsla(0, 100%, 38%, 1);
 }
 
+.nav li a.active {
+  background-color: hsla(0, 100%, 38%, 1);
+}
+
 nav.navbar {
   margin-bottom: 0;
 }

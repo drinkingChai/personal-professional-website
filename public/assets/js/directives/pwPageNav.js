@@ -3,6 +3,11 @@ angular.module('ProfessionalWebsite')
     return {
       replace: true,
       restrict: "E",
-      templateUrl: "assets/templates/directives/pwPageNav.html"
+      templateUrl: "assets/templates/directives/pwPageNav.html",
+      controller: function($scope, $location) {
+        $scope.isPage = function(name) {
+          return $location.path().split('/')[-1] === name;
+        }
+      }
     }
   });
