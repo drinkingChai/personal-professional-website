@@ -6,7 +6,7 @@ angular.module('ProfessionalWebsite')
       templateUrl: "assets/templates/directives/pwPageNav.html",
       controller: function($scope, $location) {
         $scope.isPage = function(name) {
-          return $location.path().split('/')[-1] === name;
+          return $location.path().split('/').pop() === name;
         }
       }
     }
