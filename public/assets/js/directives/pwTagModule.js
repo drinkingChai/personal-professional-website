@@ -12,7 +12,7 @@ angular.module('ProfessionalWebsite')
         $scope.tags = Tag.query();
         $scope.createTag = function(tag) {
           Tag.query().$promise.then(function(data) {
-            if (!$scope.project.hasOwnProperty("tag")) { $scope.project.tags = {}; }
+            if (!$scope.project.hasOwnProperty("tags")) { $scope.project.tags = {}; }
             for (var i = 0, l = data.length; i < l; i++) {
               if (tag.name === data[i].name) {
                 $scope.project.tags[tag.name] = true;
