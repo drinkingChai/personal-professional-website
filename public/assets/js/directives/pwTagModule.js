@@ -11,11 +11,20 @@ angular.module('ProfessionalWebsite')
         $scope.tag = new Tag();
         $scope.tags = Tag.query();
         $scope.createTag = function(tag) {
-          tag.$save();
-          if (!$scope.project.hasOwnProperty("tag")) { $scope.project.tags = {}; }
-          $scope.project.tags[tag.name] = true;
-          $scope.tags = Tag.query();
-          $scope.tag = new Tag();
+          Tag.query().$promise.then(function(data) {
+            if (!$scope.project.hasOwnProperty("tag")) { $scope.project.tags = {}; }
+            for (var i = 0, l = data.length; i < l; i++) {
+              if (tag.name === data[i].name) {
+                $scope.project.tags[tag.name] = true;
+                $scope.tag = new Tag();
+                return;
+              }
+            }
+            tag.$save();
+            $scope.project.tags[tag.name] = true;
+            $scope.tags = Tag.query();
+            $scope.tag = new Tag();
+          });
         }
       }
     }
