@@ -1,7 +1,7 @@
 <div class="container">
   <form name="form">
     <pw-project-required-fields></pw-project-required-fields>
-    <pw-tag-module></pw-tag-module>
+    <pw-tag-module project="project"></pw-tag-module>
 
     <input type="submit" class="btn btn-default" ng-click="form.$valid && saveProject(project)">
     <a type="submit" class="btn btn-default" href="#/projects">Cancel</a>
