@@ -35,6 +35,10 @@ nav.navbar {
 /* Nav end */
 
 /* Tags */
+.tag, .tag:hover {
+  color: #fff;
+}
+
 .tag {
   padding: 2px 4px;
   margin-right: 2px;
@@ -44,6 +48,18 @@ nav.navbar {
   font-weight: bold;
   font-size: 12px;
 }
+
+/* Checkbox tags */
+.tag input[type="checkbox"] {
+  display: none;
+}
+
+.tagged {
+  background-color: hsla(200, 100%, 20%, 1);
+  color: #fff;
+}
+
+
 
 /* Project index start */
 
