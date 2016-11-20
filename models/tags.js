@@ -53,8 +53,10 @@ module.exports = {
     }
     var _projects = projects.all();
     for (var i = 0, l = _projects.length; i < l; i++) {
-      delete _projects[i].tags[tagRemovedName];
-      client.lset('projects', i, JSON.stringify(_projects[i]), function(error) { if (error) return error; });
+      if (_projects[i].hasOwnProperty("tags")) {
+        delete _projects[i].tags[tagRemovedName];
+        client.lset('projects', i, JSON.stringify(_projects[i]), function(error) { if (error) return error; });
+      }
     }
   }
 }
