@@ -5,11 +5,8 @@ angular.module('ProfessionalWebsite')
 
       if (input) {
         for (var i = 0, l = collection.length; i < l; i++) {
-          for (var j = 0, tags = Object.keys(collection[i].tags), n = tags.length; j < n; j++) {
-            if (tags[j].includes(input.$)) {
-              newCollection.push(collection[i]);
-              break;
-            }
+          if (Object.keys(collection[i].tags).indexOf(input) !== -1) {
+            newCollection.push(collection[i]);
           }
         }
         return newCollection;

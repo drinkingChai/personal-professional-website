@@ -1,11 +1,7 @@
-<!-- <ul class="nav navbar-nav">
-  <li><a href="#/projects/new">New Projects</a></li>
-</ul> -->
-
 <div class="container">
   <!-- Search -->
   <div class="input-group search-container">
-    <input class="form-control" type="search" placeholder="Search..." ng-model="search.tags.$">
+    <input class="form-control" type="search" placeholder="Search..." ng-model="search.$">
     <span class="input-group-btn">
       <button class="btn btn-default" type="button" name="project-search">
         <i class="fa fa-search" aria-hidden="true"></i>
@@ -15,11 +11,14 @@
 
   <!-- Tags -->
   <div class="tags-container">
-    <a class="btn tag" ng-repeat="tag in tags">{{tag.name}}</a>
+    <label ng-repeat="tag in tags" class="btn tag">
+      <input type="checkbox" name="" ng-value="tag.name" ng-click="tagSearch.name = tag.name">
+      {{tag.name}}
+    </label>
   </div>
 
   <!-- List of projects -->
-  <div class="row" ng-repeat="project in projects | tagFilter:search.tags" >
+  <div class="row" ng-repeat="project in projects | filter:search | tagFilter:tagSearch.name">
     <!-- placeholder Project thumbnail -->
     <div class="col-md-4 hidden-sm">
       <figure>
