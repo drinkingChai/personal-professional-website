@@ -10,19 +10,26 @@ var tags;
 
 
 client.smembers("tags", function(error, data) {
-  tags = new Set(data);
+  var tagsArray = [];
+  for (var i = 0, l = data.length; i < l; i++) {
+    tagsArray.push(JSON.parse(data[i]));
+  }
+  tagsArray.sort();
+  tags = new Set(tagsArray)
 });
 
 
 module.exports = {
   all: function() {
-    return tags;
+    return Array.from(tags);
   },
   //
   // Create a new tag
   // @param {String} name
   //
   new: function(name) {
+    tags.add(name);
+    tags = new Set(Array.from(tags).sort())
     client.sadd("tags", JSON.stringify(name));
   },
   //
@@ -30,6 +37,7 @@ module.exports = {
   // @param {String} name
   //
   delete: function(name) {
+    tags.delete(name);
     client.srem("tags", JSON.stringify(name));
   }
 }

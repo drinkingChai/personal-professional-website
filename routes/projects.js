@@ -29,5 +29,4 @@ router.route('/:id')
     response.sendStatus(200);
   });
 
-  // router.route('/:id/edit')
 module.exports = router;

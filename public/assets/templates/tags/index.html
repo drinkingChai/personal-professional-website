@@ -7,7 +7,7 @@
           <input class="form-control" type="text" id="newTag" name="newTag" ng-model="tag.name" ng-required="true">
           <span class="input-group-btn">
             <button class="btn btn-default" type="submit"
-              name="newTag" ng-click="form.$valid && createTag(tag)">Add</button>
+              name="newTag" ng-click="newTag.$valid && createTag(tag)">Add</button>
           </span>
         </div>
       </form>
@@ -18,7 +18,7 @@
 
   <div class="row">
     <div ng-repeat="tag in tags" class="col-md-2">
-      <h2>{{tag.name}}</h2>
+      <h2>{{tag}}</h2>
       <a class="btn btn-default" ng-href="" ng-click="delete(tag)">Delete</a>
     </div>
   </div>

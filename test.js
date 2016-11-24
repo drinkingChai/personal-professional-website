@@ -125,3 +125,11 @@ describe('Create new tags', function() {
       .expect(201, done);
   });
 })
+
+describe('Delete a tag', function() {
+  it('Returns a 204 status code', function(done) {
+    request(app)
+      .delete('/tags/test1')
+      .expect(204, done);
+  })
+});
