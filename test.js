@@ -110,33 +110,18 @@ describe('Request all tags', function() {
 });
 
 describe('Create new tags', function() {
-  after(function() {
-    testClient.flushall();
-  });
-
-  it('Returns a status code of 201', function(done) {
-      request(app)
-        .post('/tags')
-        .type('JSON')
-        .send('{"name": "website"}')
-        .expect(201, done);
-  });
-});
-
-describe('Delete tag', function() {
-  after(function() {
-    testClient.flushall();
-  });
-
-  it('Returns a 204 status code', function(done) {
+  it('Returns a 201 status code', function(done) {
     request(app)
       .post('/tags')
       .type('JSON')
-      .send('{"name": "website"}')
-      .end(function(error, response) {
-        request(app)
-        .delete('/tags/1')
-        .expect(204, done);
-      });
-    });
-});
+      .send('{"name": "test1"}')
+      .expect(201, done);
+  });
+  it('Returns a 201 status code', function(done) {
+    request(app)
+      .post('/tags')
+      .type('JSON')
+      .send('{"name": "test2"}')
+      .expect(201, done);
+  });
+})

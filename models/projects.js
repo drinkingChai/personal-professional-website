@@ -2,8 +2,6 @@ var _ = require('lodash');
 var redis = require('redis');
 var client = redis.createClient();
 
-client.select(('profWebsiteTest' || 'development').length);
-
 var lastId = 0,
   projects = [];
 
