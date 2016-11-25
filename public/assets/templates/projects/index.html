@@ -11,14 +11,11 @@
 
   <!-- Tags -->
   <div class="tags-container">
-    <label ng-repeat="tag in tags" class="btn tag">
-      <input type="checkbox" name="" ng-value="tag" ng-click="tagSearch.name = tag">
-      {{tag}}
-    </label>
+    <span class="btn tag" ng-repeat="tag in tags" ng-click="tagSearch.name = tag">{{tag}}</span>
   </div>
 
   <!-- List of projects -->
-  <div class="row" ng-repeat="project in projects | filter:search | tagFilter:tagSearch.name">
+  <div class="row project" ng-repeat="project in projects | filter:search | tagFilter:tagSearch.name">
     <!-- project thumbnail -->
     <div class="col-md-4">
       <figure>
