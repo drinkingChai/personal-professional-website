@@ -1,13 +1,13 @@
 <div class="">
-  <label class="btn tag" ng-class="{'tagged': project.tags[tag.name]}" ng-repeat="tag in tags">
-    <input type="checkbox" value=""
-      ng-model="project.tags[tag.name]">
-      {{tag.name}}
-  </label>
+  {{init()}}
+  <span class="btn tag" ng-repeat="tag in tags"
+   ng-click="toggleTag(tag)" ng-class="{'tagged': temp.has(tag)}">{{tag}}</span>
 
+   {{project}}
+<!--
   <fieldset class="form-group">
     <label for="newTag">New Tag</label>
     <input class="form-control" type="text" id="newTag" name="newTag" ng-model="tag.name">
     <button class="btn btn-default" type="button" name="newTag" ng-click="tag.name && createTag(tag)">Add Tag</button>
-  </fieldset>
+  </fieldset> -->
 </div>
