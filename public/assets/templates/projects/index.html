@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="project-index">
   <!-- Search -->
   <div class="input-group search-container">
     <input class="form-control" type="search" placeholder="Search..." ng-model="search.$">
@@ -11,21 +11,17 @@
 
   <!-- Tags -->
   <div class="tags-container">
-    <label ng-repeat="tag in tags" class="btn tag">
-      <input type="checkbox" name="" ng-value="tag" ng-click="tagSearch.name = tag">
-      {{tag}}
-    </label>
-    <!-- Clear tag filter -->
-    <!-- Add font-awesome X -->
-    <span class="btn btn-warning tag" ng-click="tagSearch.name = ''">Clear</label>
+    <span class="btn tag" ng-repeat="tag in tags" ng-click="tagSearch.name = tag">{{tag}}</span>
   </div>
 
   <!-- List of projects -->
-  <div class="row" ng-repeat="project in projects | filter:search | tagFilter:tagSearch.name">
-    <!-- placeholder Project thumbnail -->
-    <div class="col-md-4 hidden-sm">
+  <div class="row project" ng-repeat="project in projects | filter:search | tagFilter:tagSearch.name">
+    <!-- project thumbnail -->
+    <div class="col-md-4">
       <figure>
-        <img ng-src="project.thumbnail" alt="" />
+        <!-- <img ng-src="project.thumbnail" alt="" /> -->
+        <!-- placeholder -->
+        <img src="assets/images/placeholder.png" alt="" />
       </figure>
     </div>
 

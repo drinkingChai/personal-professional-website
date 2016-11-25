@@ -16,8 +16,14 @@ h2 {
   font-size: 1.5em;
 }
 
+nav {
+  font-size: 1em;
+}
 
-/**************/
+
+/*****************/
+
+>>>>>>> style
 
 footer, .home {
   text-align: center;
@@ -28,11 +34,16 @@ main .container {
   padding-bottom: 20px;
 }
 
+figure img {
+  max-width: 100%;
+}
+
 /* Nav start */
 nav {
   background-color: hsla(360, 100%, 62%, 1);
 }
 
+nav,
 nav a,
 nav a:hover,
 nav a:focus {
@@ -67,12 +78,7 @@ nav.navbar {
   color: #fff;
   border-radius: 10%;
   font-weight: bold;
-  font-size: 12px;
-}
-
-/* Checkbox tags */
-.tag input[type="checkbox"] {
-  display: none;
+  font-size: 0.75em;
 }
 
 .tagged {
@@ -80,19 +86,32 @@ nav.navbar {
   color: #fff;
 }
 
+/* Tags end */
 
 
 /* Project index start */
-
 .search-container, .tags-container {
   margin-bottom: 10px;
 }
 
+.edit-options {
+  float: right;
+}
+
+.project-index .project:not(:last-child) {
+  margin-bottom: 20px;
+}
+
 /* Project index end */
 
+nav.container-fluid,
+.home.jumbotron {
+  border-radius: 0;
+}
 
 /* Home start */
 main .container-fluid {
+  margin: 20px;
   padding: 0;
 }
 
@@ -101,25 +120,24 @@ main .container-fluid {
   background: linear-gradient(
       rgba(0, 0, 0, 0.6),
       rgba(0, 0, 0, 0.6)
-    ), url('../assets/images/cover.jfif') top left no-repeat;
+    ), url('../assets/images/cover.jpg') top left no-repeat;
   background-color: hsla(0, 0%, 30%, 1);
-  background-size: 100%;
+  background-size: cover;
 
   color: #fff;
 }
 
 .home.jumbotron {
-  border-radius: 0;
+  margin: -20px;
   padding-top: 20%;
   padding-bottom: 20%;
 
-  margin-bottom: 0;
+  /*margin-bottom: 0;*/
 }
 
 .home a {
   padding: 15px 25px;
   margin-top: 10px;
-  font-size: 20px;
   color: #fff;
   border: 2px #fff solid;
   border-radius: 0;
@@ -135,6 +153,15 @@ main .container-fluid {
 }
 /* Home end */
 
+/* About start */
+.about .navbar-toggle {
+  margin-bottom: auto;
+  margin-top: auto;
+  margin-right: 0;
+  font-size: 1.2em;
+}
+
+/* About end */
 
 /* Footer start */
 footer {

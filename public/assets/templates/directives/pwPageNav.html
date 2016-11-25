@@ -1,9 +1,17 @@
-<div class="container-fluid">
-  <!-- Brand -->
-  <a href="#/" class="navbar-brand">Wasif Zaman</a>
+<div class="about">
+  <div class="navbar-header">
+    <!-- Brand -->
+    <a href="#/" class="navbar-brand">Wasif Zaman</a>
+
+    <!-- Hamburger button -->
+    <button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='.navbar-collapse'>
+      <i class="fa fa-bars" aria-hidden="true" ng-click="dropped=true" ng-hide="dropped"></i>
+      <i class="fa fa-times" aria-hidden="true" ng-click="dropped=false" ng-show="dropped"></i>
+    </button>
+  </div>
 
   <!-- Right justified navbar -->
-  <ul class="nav navbar-nav navbar-right">
+  <ul class="nav navbar-nav navbar-right collapse navbar-collapse">
     <li><a href="#/projects" ng-class="{'active': isPage('projects')}">Projects</a></li>
     <li><a href="#/about" ng-class="{'active': isPage('about')}">About</a></li>
     <li><a href="#/admin" ng-class="{'active': isPage('admin')}">Admin</a></li>
