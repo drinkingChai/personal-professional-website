@@ -68,5 +68,20 @@ module.exports = {
     var _project = searchById(id);
     client.lrem('projects', 1, JSON.stringify(_project.value), function(error) { if (error) throw error; });
     projects.splice(_project.index, 1);
+  },
+  //
+  // Deletes a tag
+  // @param {String} name
+  //
+  deleteTag: function(name) {
+    for (var i = 0, l = projects.length; i < l; i++) {
+      var temp = new Set(projects[i].tags),
+        project = projects[i];
+      if (temp.has(name)) {
+        temp.delete(name);
+        project.tags = Array.from(temp);
+        client.lset('projects', i, JSON.stringify(project), function(error) { if (error) return error; });
+      }
+    }
   }
 }

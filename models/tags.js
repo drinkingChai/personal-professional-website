@@ -1,5 +1,5 @@
 var redis = require('redis');
-// var projects = require('./projects');
+var projects = require('./projects');
 var client = redis.createClient();
 
 var tags;
@@ -33,11 +33,12 @@ module.exports = {
     client.sadd("tags", JSON.stringify(name));
   },
   //
-  // Delete a tag
+  // Delete a tag and delete it from all projects
   // @param {String} name
   //
   delete: function(name) {
     tags.delete(name);
     client.srem("tags", JSON.stringify(name));
+    projects.deleteTag(name);
   }
 }
