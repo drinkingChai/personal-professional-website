@@ -1,3 +1,24 @@
+/* Style guide */
+html {
+  font-size: 16px;
+  line-height: 1.5em;
+}
+
+body {
+  font-size: 1em;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+
+/**************/
+
 footer, .home {
   text-align: center;
 }
@@ -65,10 +86,6 @@ nav.navbar {
 
 .search-container, .tags-container {
   margin-bottom: 10px;
-}
-
-.edit-options {
-  float: right;
 }
 
 /* Project index end */
