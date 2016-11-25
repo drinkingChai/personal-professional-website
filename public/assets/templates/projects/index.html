@@ -1,4 +1,4 @@
-<div class="container">
+<div class="project-index">
   <!-- Search -->
   <div class="input-group search-container">
     <input class="form-control" type="search" placeholder="Search..." ng-model="search.$">
@@ -19,10 +19,12 @@
 
   <!-- List of projects -->
   <div class="row" ng-repeat="project in projects | filter:search | tagFilter:tagSearch.name">
-    <!-- placeholder Project thumbnail -->
-    <div class="col-md-4 hidden-sm">
+    <!-- project thumbnail -->
+    <div class="col-md-4">
       <figure>
-        <img ng-src="project.thumbnail" alt="" />
+        <!-- <img ng-src="project.thumbnail" alt="" /> -->
+        <!-- placeholder -->
+        <img src="assets/images/placeholder.png" alt="" />
       </figure>
     </div>
 
@@ -33,12 +35,11 @@
 
       <a class="btn btn-danger" ng-href="{{project.url}}" ng-show="{{project.url.length > 0}}">View Live Demo</a>
       <!-- placeholder List of categories -->
-    </div>
 
-    <!-- Edit options -->
-    <div class="edit-options" >
+      <!-- Edit options -->
       <!-- maybe we'll add show?? <a ng-href="#/projects/{{project.id}}">More...</a> -->
       <a ng-href="#/projects/{{project.id}}/edit">Edit</a>
     </div>
+
   </div>
 </div>

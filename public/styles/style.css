@@ -1,3 +1,32 @@
+/* Style guide */
+html {
+  font-size: 16px;
+  line-height: 1.5em;
+}
+
+body {
+  font-size: 1em;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+nav {
+  font-size: 1em;
+}
+
+
+
+
+
+/*****************/
+
+
 footer, .home {
   text-align: center;
 }
@@ -46,7 +75,7 @@ nav.navbar {
   color: #fff;
   border-radius: 10%;
   font-weight: bold;
-  font-size: 12px;
+  font-size: 0.75em;
 }
 
 /* Checkbox tags */
@@ -71,8 +100,16 @@ nav.navbar {
   float: right;
 }
 
+.project-index figure img {
+  max-width: 100%;
+}
+
 /* Project index end */
 
+nav.container-fluid,
+.home.jumbotron {
+  border-radius: 0;
+}
 
 /* Home start */
 main .container-fluid {
@@ -92,7 +129,6 @@ main .container-fluid {
 }
 
 .home.jumbotron {
-  border-radius: 0;
   padding-top: 20%;
   padding-bottom: 20%;
 
@@ -102,7 +138,6 @@ main .container-fluid {
 .home a {
   padding: 15px 25px;
   margin-top: 10px;
-  font-size: 20px;
   color: #fff;
   border: 2px #fff solid;
   border-radius: 0;
