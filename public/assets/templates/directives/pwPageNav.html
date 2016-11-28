@@ -4,9 +4,9 @@
     <a href="#/" class="navbar-brand">Wasif Zaman</a>
 
     <!-- Hamburger button -->
-    <button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='.navbar-collapse'>
-      <i class="fa fa-bars" aria-hidden="true" ng-click="dropped=true" ng-hide="dropped"></i>
-      <i class="fa fa-times" aria-hidden="true" ng-click="dropped=false" ng-show="dropped"></i>
+    <button type='button' class='navbar-toggle collapsed' ng-click="dropped=!dropped" data-toggle='collapse' data-target='.navbar-collapse'>
+      <i class="fa fa-bars" aria-hidden="true" ng-hide="dropped"></i>
+      <i class="fa fa-times" aria-hidden="true" ng-show="dropped"></i>
     </button>
   </div>
 
