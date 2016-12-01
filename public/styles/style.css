@@ -37,37 +37,28 @@ figure img {
   max-width: 100%;
 }
 
-nav,
 footer {
-  background-color: hsla(0, 0%, 10%, 1);
+  background-color: hsla(0, 0%, 15%, 1);
 }
 
 /* Nav start */
 nav {
-  /*background-color: hsla(204, 64%, 81%, 1);*/
+  text-align: center;
+  padding-bottom: 1%;
+  /*background-color: hsla(210, 50%, 90%, 1);*/
 }
 
-nav,
+nav a {
+  margin-right: 1%;
+}
+
 nav a,
 nav a:hover,
-nav a:focus {
-  color: #fff;
+nav a:focus,
+nav a:visited {
+  text-decoration: none;
+  color: hsla(0, 0%, 10%, 1);
 }
-
-.nav li a:hover,
-.nav li a:focus {
-  background-color: hsla(0, 100%, 38%, 1);
-}
-
-.nav li a.active {
-  background-color: hsla(0, 100%, 38%, 1);
-}
-
-nav.navbar {
-  margin-bottom: 0;
-}
-
-
 /* Nav end */
 
 /* Tags */
@@ -126,7 +117,7 @@ main .container-fluid {
       rgba(0, 0, 0, 0.6),
       rgba(0, 0, 0, 0.6)
     ), url('../assets/images/cover.jpg') top left no-repeat;*/
-  background-color: hsla(210, 50%, 90%, 1);
+  /*background-color: hsla(210, 50%, 90%, 1);*/
   background-size: contain;
 
   /*color: #fff;*/
