@@ -2,7 +2,8 @@ angular.module('ProfessionalWebsite')
   .config(function($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'assets/templates/home.html'
+        templateUrl: 'assets/templates/home.html',
+        controller: 'ProjectIndexController'
       })
       .when('/tags', {
         templateUrl: 'assets/templates/tags/index.html',

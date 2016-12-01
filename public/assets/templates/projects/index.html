@@ -1,4 +1,4 @@
-<div class="project-index">
+<div>
   <!-- Search -->
   <div class="input-group search-container">
     <input class="form-control" type="search" placeholder="Search..." ng-model="search.$">
@@ -10,13 +10,13 @@
   </div>
 
   <!-- Tags -->
-  <div class="tags-container">
-    <span class="btn tag" ng-repeat="tag in tags" ng-click="tagSearch.name = tag">{{tag}}</span>
-    <span class="btn btn-warning tag" ng-click="tagSearch.name = ''">Clear</label>
+  <div>
+    <span class="btn" ng-repeat="tag in tags" ng-click="tagSearch.name = tag">{{tag}}</span>
+    <span class="btn btn-warning" ng-click="tagSearch.name = ''">Clear</label>
   </div>
 
   <!-- List of projects -->
-  <div class="row project" ng-repeat="project in projects | filter:search | tagFilter:tagSearch.name">
+  <div class="row" ng-repeat="project in projects | filter:search | tagFilter:tagSearch.name">
     <!-- project thumbnail -->
     <div class="col-md-4">
       <figure>
@@ -29,7 +29,7 @@
     <div class="col-md-8">
       <h2>{{project.title}}</h2>
       <p>{{project.description}}</p>
-      <p><span class="btn tag" ng-repeat="tag in project.tags">{{tag}}</span></p>
+      <p><span class="btn" ng-repeat="tag in project.tags">{{tag}}</span></p>
 
       <a class="btn btn-danger" ng-href="{{project.url}}" ng-show="{{project.url.length > 0}}">View Live Demo</a>
       <!-- placeholder List of categories -->
