@@ -126,7 +126,7 @@ main .container-fluid {
       rgba(0, 0, 0, 0.6),
       rgba(0, 0, 0, 0.6)
     ), url('../assets/images/cover.jpg') top left no-repeat;*/
-  background-color: hsla(38, 100%, 80%, 1);
+  background-color: hsla(210, 50%, 90%, 1);
   background-size: contain;
 
   /*color: #fff;*/
