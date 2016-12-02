@@ -25,7 +25,36 @@ nav, footer {
 }
 /****************/
 
+body {
+  /*background: url('../assets/images/wccsnfwrkz0-cameron-kirby.jpg')*/
+}
+
+pre,
+.hljs {
+  background-color: transparent;
+  border: none;
+  color: hsl(0, 0%, 50%);
+}
+
 .home {
-  max-width: 70%;
+  max-width: 620px;
+}
+
+.home p {
+  max-width: 400px;
+}
+
+.home h1,
+.home p,
+.home pre {
+  padding-top: 50px;
+}
+
+.home,
+.home p {
   margin: 0 auto;
+}
+
+.home h1 {
+  text-align: center;
 }
