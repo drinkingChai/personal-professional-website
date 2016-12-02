@@ -7,35 +7,27 @@
     <link rel="stylesheet" href="styles/bootstrap.css" media="screen" title="no title">
     <link rel="stylesheet" href="styles/bootstrap-theme.css" media="screen" title="no title">
     <link rel="stylesheet" href="styles/font-awesome.css" media="screen" title="no title">
+    <link rel="stylesheet" href="styles/default.min.css" media="screen" title="no title">
+    <link rel="stylesheet" href="styles/atom-one-dark.css" media="screen" title="no title">
     <link rel="stylesheet" href="styles/style.css" media="screen" title="no title">
   </head>
   <body>
 
 
-    <!-- Header -->
-    <nav>
-      <pw-page-nav></pw-page-nav>
-    </nav>
-
     <!-- Main -->
-    <main>
-      <div ng-view></div>
-    </main>
+    <main ng-view></main>
 
-    <!-- Footer -->
-    <footer>
-      <pw-page-footer></pw-page-footer>
-    </footer>
+    <!-- Highlight.js -->
+    <script src="assets/js/vendor/highlight.min.js" charset="utf-8"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
 
-
-
+    <!-- Angular Assets -->
     <!-- Vendor -->
     <script src="assets/js/vendor/jquery-3.1.1.js" charset="utf-8"></script>
     <script src="assets/js/vendor/bootstrap.js" charset="utf-8"></script>
     <script src="assets/js/vendor/angular.js" charset="utf-8"></script>
     <script src="assets/js/vendor/angular-route.js" charset="utf-8"></script>
     <script src="assets/js/vendor/angular-resource.js" charset="utf-8"></script>
-
 
     <!-- App -->
     <script src="assets/js/app.js" charset="utf-8"></script>

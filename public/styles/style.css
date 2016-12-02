@@ -25,45 +25,7 @@ nav, footer {
 }
 /****************/
 
-/* multiple containers */
-nav,
-footer {
-  background-color: hsla(240, 20%, 20%, 1);
-}
-/* multiple containers end */
-
-/* Home */
 .home {
-  height: 100vh;
+  max-width: 70%;
+  margin: 0 auto;
 }
-
-.home .row:first-child {
-  height: 80%;
-}
-
-.home .row:nth-child(2) {
-  height: 20%;
-}
-/* Home end */
-
-/* Nav */
-nav a {
-  color: hsla(240, 20%, 90%, 1);
-}
-/* Nav end */
-
-/* Footer */
-footer {
-  padding: 3.2389% 1.6194%;
-}
-
-footer .social {
-  padding-top: 1.6194%;
-  text-align: right;
-}
-
-footer,
-footer a {
-  color: hsla(240, 20%, 90%, 1);
-}
-/* Footer end */

@@ -1,29 +1,29 @@
 <div class="home">
-  <div class="row">
-    <div class="col-md-8">
-      <figure>
-        <!-- Caraousel? -->
-      </figure>
-    </div>
+  <pre>
+    <code class="javascript hljs">
+      <span class="hljs-keyword">var</span> <span class="hljs-title">toCode</span> = function(mockup) {
+        <span class="hljs-keyword">return function</span>(chai) {
+          <span class="hljs-keyword">return</span> mockup * chai;
+        };
+      }
 
-    <div class="col-md-4">
-      <p>
-        Hi! You've wandered through the web and stumbled onto my portfolio! Please
-        look around and if you'd like to contact me, click on that About
-        button up top.
-      </p>
-      <br>
-      <p>Thanks,</p>
-      <p>Wasif</p>
-    </div>
-  </div>
+      project1 = <span class="hljs-title">toCode</span>(mockup_1);
+      product_v1 = <span class="hljs-title">project1</span>(bengal_chai);
+      product_v2 = <span class="hljs-title">project1</span>(masala_chai);
+      product_v3 = <span class="hljs-title">project1</span>(spiced_masala_chai);
 
-  <div class="row">
-    <div class="col-md-4" ng-repeat="project in firstThreeProjects">
-      <a ng-href="#/projects/{{project.id}}">
-        <h2>{{project.title}}</h2>
-        <p>{{project.description}}</p>
-      </a>
-    </div>
-  </div>
+      <span class="hljs-title">emailToClient</span>({
+        <span class="hljs-string">"Subject": "Spiced Masala Chai yielded best result!!"</span>,
+        <span class="hljs-string">"Body": " ... "</span>
+      });
+    </code>
+  </pre>
+
+
+  <p>
+    Hi there! My name is Wasif and you've stumbled upon my website.
+    I am an aspiring developer.
+    I will be attending Fullstack Academy come April 2017.
+    Please take a look around and if you're intereseted in working with me, click the Contact button.
+  </p>
 </div>
