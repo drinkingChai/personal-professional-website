@@ -5,7 +5,7 @@ angular.module('ProfessionalWebsite')
 
       if (input) {
         for (var i = 0, l = collection.length; i < l; i++) {
-          if (collection[i].tags.indexOf(input) !== -1) {
+          if (collection[i].tags && collection[i].tags.indexOf(input) !== -1) {
             newCollection.push(collection[i]);
           }
         }
