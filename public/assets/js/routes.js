@@ -15,6 +15,9 @@ angular.module('ProfessionalWebsite')
       .when('/about', {
         templateUrl: 'assets/templates/about.html'
       })
+      .when('/contact', {
+        templateUrl: 'assets/templates/contact.html'
+      })
       .when('/projects', {
         templateUrl: 'assets/templates/projects/index.html',
         controller: "ProjectIndexController"

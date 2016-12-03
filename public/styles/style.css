@@ -71,11 +71,14 @@ pre,
   color: hsl(0, 0%, 50%);
 }
 
-.home {
+.home,
+.about,
+.contact {
   max-width: 620px;
 }
 
-.home p {
+.home p,
+.search-container {
   max-width: 400px;
 }
 
@@ -89,17 +92,25 @@ pre,
 
 .home,
 .all-projects,
+.about,
+.contact,
 .home p {
   margin: 0 auto;
 }
 
 .home h1,
-.search-container {
+.search-container,
+.about,
+.contact {
   padding-top: 12.72265%;
 }
 .home p,
 .home pre {
   margin-top: 12.72265%;
+}
+
+.search-container {
+  margin-left: 21.01576%;
 }
 
 .all-projects {

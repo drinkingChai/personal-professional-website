@@ -1,6 +1,5 @@
 <div class="all-projects">
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3 search-container">
+    <div class="search-container">
       <!-- Search -->
       <div class="input-group">
         <input class="form-control" type="search" placeholder="Search..." ng-model="search.$">
@@ -17,11 +16,10 @@
         <span class="btn btn-warning" ng-click="tagSearch.name = ''">Clear</label>
       </div>
     </div>
-  </div>
 
   <!-- List of projects -->
-  <div class="row">
-    <div class="col-md-6 list-project" ng-repeat="project in projects | filter:search | tagFilter:tagSearch.name">
+  <div class="row" ng-repeat="projectsArr in doubleColumnProjects">
+    <div class="col-md-6 list-project" ng-repeat="project in projectsArr | filter:search | tagFilter:tagSearch.name">
       <h2>{{project.title}}</h2>
       <p>{{project.description}}</p>
       <p><span class="btn btn-default" ng-repeat="tag in project.tags">{{tag}}</span></p>
