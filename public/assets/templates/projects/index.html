@@ -18,8 +18,7 @@
     </div>
 
   <!-- List of projects -->
-  <div class="row" ng-repeat="projectsArr in doubleColumnProjects">
-    <div class="col-md-6 list-project" ng-repeat="project in projectsArr | filter:search | tagFilter:tagSearch.name">
+    <div class="list-project" ng-repeat="project in projects | filter:search | tagFilter:tagSearch.name">
       <h2>{{project.title}}</h2>
       <p>{{project.description}}</p>
       <p><span class="btn btn-default" ng-repeat="tag in project.tags">{{tag}}</span></p>
@@ -28,6 +27,5 @@
       <!-- maybe we'll add show?? <a ng-href="#/projects/{{project.id}}">More...</a> -->
       <a ng-href="#/projects/{{project.id}}/edit">Edit</a>
     </div>
-  </div>
 
 </div>

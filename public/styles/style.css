@@ -38,15 +38,22 @@ body {
 }
 
 main {
-  margin-left: 200px;
+  transition:margin 1s;
+  margin-left: -200px;
+}
+
+.slide-right {
+  margin-left: 0px;
 }
 
 nav {
+  margin-left: -200px;
   float: left;
   height: 100vh;
   position: fixed;;
   min-width: 200px;
   background-color: hsl(0, 0%, 20%);
+  transition: margin 1s;
 }
 
 nav ul {
@@ -57,6 +64,7 @@ nav ul {
   min-width: inherit;
   text-align: center;
   color: hsl(0, 0%, 85%);
+  list-style-type: none;
 }
 
 nav ul li:hover {
@@ -73,12 +81,12 @@ pre,
 
 .home,
 .about,
+.all-projects,
 .contact {
   max-width: 620px;
 }
 
-.home p,
-.search-container {
+.home p {
   max-width: 400px;
 }
 
@@ -99,7 +107,6 @@ pre,
 }
 
 .home h1,
-.search-container,
 .about,
 .contact {
   padding-top: 12.72265%;
@@ -110,21 +117,22 @@ pre,
 }
 
 .search-container {
-  margin-left: 21.01576%;
-}
-
-.all-projects {
-  max-width: 1000px;
-}
-
-.all-projects .row:nth-child(2) {
-  margin-top: 12.72265%;
+  padding-top: 24.19355%;
 }
 
 .list-project {
-  margin-bottom: 3.43171%;
+  padding: 4.83871% 0;
+}
+
+.list-project:nth-child(2) {
+  margin-top: 8.29032%;
 }
 
 .tag-filter {
   margin-top: 1.68634%;
+}
+
+.side-menu-icon {
+  position: fixed;
+  color: hsl(0, 0%, 90%);
 }
