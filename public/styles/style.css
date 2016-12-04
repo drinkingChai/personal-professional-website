@@ -33,8 +33,10 @@ nav, footer {
 /****************/
 
 body {
-  /*background: url('../assets/images/wccsnfwrkz0-cameron-kirby.jpg')*/
+  /*background-image: url('../assets/images/wccsnfwrkz0-cameron-kirby.jpg');*/
   position: relative;
+  margin-left: -200px;
+  transition: margin 0.5s;
 }
 
 main {
@@ -47,21 +49,16 @@ main {
 }
 
 nav {
-  margin-left: -200px;
   float: left;
   height: 100vh;
-  position: fixed;;
   min-width: 200px;
   background-color: hsl(0, 0%, 20%);
-  transition: margin 1s;
 }
 
 nav ul {
-  position: absolute;
-  top: 50%;
+  position: relative;
+  top: 40vh;
   margin: 0;
-  transform: translateY(-50%);
-  min-width: inherit;
   text-align: center;
   color: hsl(0, 0%, 85%);
   list-style-type: none;
@@ -134,5 +131,16 @@ pre,
 
 .side-menu-icon {
   position: fixed;
+  top: 20px;
+  left: 20px;
   color: hsl(0, 0%, 90%);
+  transition: all 0.5s;
+}
+
+.fa-bars.side-menu-icon {
+  color: hsl(0, 0%, 50%);
+}
+
+.fa {
+  font-size: 1.2em;
 }
