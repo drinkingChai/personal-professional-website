@@ -1,13 +1,9 @@
 var menuAndOverlay = function() {
-  $("nav").toggleClass("slide-right");
+  $("nav.v-nav").toggleClass("slide-right");
   $(".side-menu-icon").toggleClass("fa-bars fa-times");
   $(".overlay").toggleClass("overlay-visibility");
 }
 
-$(".side-menu-icon").click(function() {
-  menuAndOverlay();
-});
-
-$(".overlay").click(function() {
+$(".side-menu-icon, .overlay").click(function() {
   menuAndOverlay();
 });

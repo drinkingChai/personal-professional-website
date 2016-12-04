@@ -38,11 +38,11 @@ body {
   transition: margin 0.5s;
 }
 
-.slide-right {
+.v-nav.slide-right {
   left: 0;
 }
 
-nav {
+nav.v-nav {
   position: fixed;
   top: 0px;
   left: -25%;
@@ -52,7 +52,7 @@ nav {
   transition: left 0.5s;
 }
 
-nav ul {
+nav.v-nav ul {
   position: relative;
   top: 40vh;
   margin: 0;
@@ -61,9 +61,29 @@ nav ul {
   list-style-type: none;
 }
 
-nav ul li:hover {
+nav.v-nav ul li:hover {
   background-color: hsl(0, 0%, 70%);
   color: hsl(0, 0%, 20%);
+}
+
+nav.horiz-nav {
+  z-index: 1;
+}
+
+.horiz-nav a.navbar-brand {
+  padding-left: 0;
+}
+
+.navbar-menu-icon {
+  /*text-align: right;*/
+  display: inline-block;
+  width: 20px;
+  position: absolute;
+  right: 0;
+}
+
+.navbar-menu-icon .fa {
+  line-height: 2.6em;
 }
 
 pre,
@@ -80,7 +100,8 @@ pre,
   text-align: center;
 }
 
-main {
+main,
+nav.horiz-nav {
   position: relative;
   max-width: 600px;
   margin: 0 auto;
@@ -113,6 +134,7 @@ main {
 }
 
 .side-menu-icon {
+  visibility: hidden;
   position: fixed;
   top: 20px;
   left: 20px;
@@ -145,5 +167,12 @@ main {
   visibility: hidden;
 }
 
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 300px) {
+  nav.horiz-nav {
+    visibility: hidden;
+  }
+
+  .side-menu-icon {
+    visibility: visible;
+  }
 }
