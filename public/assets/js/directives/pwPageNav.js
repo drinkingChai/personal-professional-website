@@ -5,9 +5,9 @@ angular.module('ProfessionalWebsite')
       restrict: "E",
       templateUrl: "assets/templates/directives/pwPageNav.html",
       controller: function($scope, $location) {
-        $scope.isPage = function(name) {
-          return $location.path().split('/').pop() === name;
-        }
+        $("nav").click(function() {
+          menuAndOverlay();
+        })
       }
     }
   });

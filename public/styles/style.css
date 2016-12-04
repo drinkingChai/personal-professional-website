@@ -128,8 +128,21 @@ main {
   font-size: 1.2em;
 }
 
-.search-container .input-group input {
+.search-container .input-group input,
+.search-container .input-group .input-group-btn button {
   z-index: auto;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: hsla(0, 0%, 50%, 0.5);
+}
+
+.overlay-visibility {
+  visibility: hidden;
 }
 
 @media only screen and (max-width: 1100px) {
