@@ -35,24 +35,21 @@ nav, footer {
 body {
   /*background-image: url('../assets/images/wccsnfwrkz0-cameron-kirby.jpg');*/
   position: relative;
-  margin-left: -200px;
   transition: margin 0.5s;
 }
 
-main {
-  transition:margin 1s;
-  margin-left: -200px;
-}
-
 .slide-right {
-  margin-left: 0px;
+  left: 0;
 }
 
 nav {
-  float: left;
+  position: fixed;
+  top: 0px;
+  left: -25%;
   height: 100vh;
-  min-width: 200px;
+  width: 25%;
   background-color: hsl(0, 0%, 20%);
+  transition: left 0.5s;
 }
 
 nav ul {
@@ -71,35 +68,21 @@ nav ul li:hover {
 
 pre,
 .hljs {
-  background-color: transparent;
   border: none;
-  color: hsl(0, 0%, 50%);
-}
-
-.home,
-.about,
-.all-projects,
-.contact {
-  max-width: 620px;
+  color: hsl(0, 0%, 30%);
 }
 
 .home p {
-  max-width: 400px;
-}
-
-.home pre {
-  padding-left: 62px;
+  /*max-width: 400px;*/
 }
 
 .home h1 {
   text-align: center;
 }
 
-.home,
-.all-projects,
-.about,
-.contact,
-.home p {
+main {
+  position: relative;
+  max-width: 600px;
   margin: 0 auto;
 }
 
@@ -143,4 +126,11 @@ pre,
 
 .fa {
   font-size: 1.2em;
+}
+
+.search-container .input-group input {
+  z-index: auto;
+}
+
+@media only screen and (max-width: 1100px) {
 }
