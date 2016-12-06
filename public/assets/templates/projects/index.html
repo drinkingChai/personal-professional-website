@@ -1,31 +1,24 @@
 <div class="all-projects">
     <div class="search-container">
       <!-- Search -->
-      <div class="input-group">
-        <input class="form-control" type="search" placeholder="Search..." ng-model="search.$">
-        <span class="input-group-btn">
-          <button class="btn btn-default" type="button" name="project-search">
-            <i class="fa fa-search" aria-hidden="true"></i>
-          </button>
-        </span>
-      </div>
+      <input class="form-control" type="search" placeholder="Search..." ng-model="search.$">
 
       <!-- Tags -->
       <div class="tag-filter">
-        <span class="btn btn-default" ng-repeat="tag in tags" ng-click="tagSearch.name = tag">{{tag}}</span>
-        <span class="btn btn-warning" ng-click="tagSearch.name = ''">Clear</label>
+        <span class="btn tag" ng-repeat="tag in tags" ng-click="tagSearch.name = tag">{{tag}}</span>
+        <span class="btn tag" ng-click="tagSearch.name = ''">Clear</label>
       </div>
     </div>
 
   <!-- List of projects -->
     <div class="list-project" ng-repeat="project in projects | filter:search | tagFilter:tagSearch.name">
       <h2>{{project.title}}</h2>
+      <p><span class="tag" ng-repeat="tag in project.tags">{{tag}}</span></p>
       <p>{{project.description}}</p>
-      <p><span class="btn btn-default" ng-repeat="tag in project.tags">{{tag}}</span></p>
 
       <!-- Edit options -->
       <!-- maybe we'll add show?? <a ng-href="#/projects/{{project.id}}">More...</a> -->
-      <a ng-href="#/projects/{{project.id}}/edit">Edit</a>
+      <!-- <a ng-href="#/projects/{{project.id}}/edit">Edit</a> -->
     </div>
 
 </div>

@@ -1,18 +1,18 @@
 <div class="contact">
   <form name="contact">
     <fieldset class="form-group">
-      <label for="title">Name</label>
-      <input class="form-control" type="text" id="name" name="name" ng-required="true"/>
+      <!-- <label for="title">Name</label> -->
+      <input class="form-control" type="text" id="name" name="name" placeholder="Name..." ng-required="true"/>
     </fieldset>
 
     <fieldset class="form-group">
-      <label for="email">Email</label>
-      <input class="form-control" type="email" id="email" name="email" ng-required="true"></textarea>
+      <!-- <label for="email">Email</label> -->
+      <input class="form-control" type="email" id="email" name="email" placeholder="Email..." ng-required="true"></textarea>
     </fieldset>
 
     <fieldset class="form-group">
-      <label for="description">Inquiry</label>
-      <textarea class="form-control" id="inquiry" name="inquiry" ng-required="true"></textarea>
+      <!-- <label for="description">Inquiry</label> -->
+      <textarea class="form-control" id="inquiry" name="inquiry" placeholder="Inquiry..." ng-required="true"></textarea>
     </fieldset>
 
     <input type="submit" class="btn btn-default" ng-click="form.$valid && saveProject(project)">
