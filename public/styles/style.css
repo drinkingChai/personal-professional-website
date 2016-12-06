@@ -59,11 +59,17 @@ nav.v-nav ul {
   top: 40vh;
   margin: 0;
   text-align: center;
-  color: hsl(0, 0%, 85%);
   list-style-type: none;
 }
 
-nav.v-nav ul li:hover {
+
+nav.v-nav ul li a {
+  display: block;
+  width: 100%;
+  color: hsl(0, 0%, 85%);
+}
+
+nav.v-nav ul li a:hover {
   background-color: hsl(0, 0%, 70%);
   color: hsl(0, 0%, 20%);
 }
@@ -71,6 +77,17 @@ nav.v-nav ul li:hover {
 nav.horiz-nav {
   visibility: hidden;
   z-index: 1;
+}
+
+nav.horiz-nav a,
+nav.horiz-nav i,
+.fa-bars.side-menu-icon {
+  color: hsl(0, 0%, 20%);
+}
+
+nav.v-nav ul li a,
+nav.horiz-nav a {
+  text-decoration: none;
 }
 
 .nav-header {
@@ -96,6 +113,11 @@ nav.horiz-nav {
 pre.quarter-code,
 pre.small-code {
   display: none;
+}
+
+pre.small-code {
+  padding-left: 12.65823%;
+  padding-right: 12.65823%;
 }
 
 pre,
@@ -156,10 +178,6 @@ nav.horiz-nav {
   color: hsl(0, 0%, 90%);
   transition: all 0.5s;
   z-index: 15;
-}
-
-.fa-bars.side-menu-icon {
-  color: hsl(0, 0%, 50%);
 }
 
 .fa {
@@ -241,4 +259,10 @@ nav.horiz-nav {
   .side-menu-icon {
     visibility: visible;
   }
+}
+
+@media only screen and (max-width: 360px) {
+  pre.small-code {
+    padding-left: 5.55556%;
+    padding-right: 5.55556%;
 }
