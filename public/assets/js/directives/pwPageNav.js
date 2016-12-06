@@ -6,7 +6,9 @@ angular.module('ProfessionalWebsite')
       templateUrl: "assets/templates/directives/pwPageNav.html",
       controller: function($scope, $location) {
         $("nav.v-nav, .navbar-menu-icon").click(function() {
-          menuAndOverlay();
+          if ($(window).width() <= 1100) {
+            menuAndOverlay();
+          }
         })
 
         $scope.isPage = function(name) {

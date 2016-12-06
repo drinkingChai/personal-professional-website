@@ -1,31 +1,60 @@
 <div class="home">
   <h1>TeaToCode</h1>
 
-  <pre>
-    <code>
-      <span class="hljs-keyword">var</span> <span class="hljs-title">toCode</span> = function(mockup) {
-        <span class="hljs-keyword">return function</span>(chai, numCups) {
-          chai.drink() * numCups;
-          <span class="hljs-keyword">return</span> <span class="hljs-title">codify</span>(mockup);
-        };
-      }
+  <div class="code-container">
+    <pre class="full-code">
+      <code>
+        <span class="hljs-keyword">var</span> <span class="hljs-title">toCode</span> = function(mockup) {
+          <span class="hljs-keyword">return function</span>(chai, numCups) {
+            chai.drink() * numCups;
+            <span class="hljs-keyword">return</span> <span class="hljs-title">codify</span>(mockup);
+          };
+        }
 
-      project1 = <span class="hljs-title">toCode</span>(mockup_1);
-      product_v1 = <span class="hljs-title">project1</span>(bengal_chai, 3);
-      product_v2 = <span class="hljs-title">project1</span>(masala_chai, 3);
-      product_v3 = <span class="hljs-title">project1</span>(spiced_masala_chai, 2);
+        project1 = <span class="hljs-title">toCode</span>(mockup_1);
+        product_v1 = <span class="hljs-title">project1</span>(bengal_chai, 3);
+        product_v2 = <span class="hljs-title">project1</span>(masala_chai, 3);
+        product_v3 = <span class="hljs-title">project1</span>(spiced_masala_chai, 2);
 
-      <span class="hljs-title">emailToClient</span>({
-        <span class="hljs-string">"Subject": "Spiced Masala Chai yielded best result!!"</span>,
-        <span class="hljs-string">"Body"</span>: <span class="hljs-title">formatForEmail</span>(project_v3)
-      });
-    </code>
-  </pre>
+        <span class="hljs-title">emailToClient</span>({
+          <span class="hljs-string">"Subject": "Spiced Masala Chai yielded best result!!"</span>,
+          <span class="hljs-string">"Body"</span>: <span class="hljs-title">formatForEmail</span>(project_v3)
+        });
+      </code>
+    </pre>
 
-  <p>
+    <pre class="quarter-code">
+      <code>
+        <span class="hljs-keyword">var</span> <span class="hljs-title">toCode</span> = function(mockup) {
+          <span class="hljs-keyword">return function</span>(chai, numCups) {
+            chai.drink() * numCups;
+            <span class="hljs-keyword">return</span> <span class="hljs-title">codify</span>(mockup);
+          };
+        }
+
+        project1 = <span class="hljs-title">toCode</span>(mockup_1);
+        product_v1 = <span class="hljs-title">project1</span>(bengal_chai, 3);
+        product_v2 = <span class="hljs-title">project1</span>(masala_chai, 3);
+        product_v3 = <span class="hljs-title">project1</span>(spiced_masala_chai, 2);
+      </code>
+    </pre>
+
+    <pre class="small-code">
+      <code>
+        <span class="hljs-keyword">var</span> <span class="hljs-title">toCode</span> = function(mockup) {
+          <span class="hljs-keyword">return function</span>(chai, numCups) {
+            chai.drink() * numCups;
+            <span class="hljs-keyword">return</span> <span class="hljs-title">codify</span>(mockup);
+          };
+        }
+      </code>
+    </pre>
+  </div>
+
+  <section>
     Hi there! My name is Wasif and you've stumbled upon my website.
     I am an aspiring developer.
     I will be attending Fullstack Academy come April 2017.
     Please take a look around and if you're intereseted in working with me, click the Contact button.
-  </p>
+  </section>
 </div>

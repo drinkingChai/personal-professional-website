@@ -45,11 +45,13 @@ body {
 nav.v-nav {
   position: fixed;
   top: 0px;
-  left: -25%;
+  /*left: -25%;*/
   height: 100vh;
-  width: 25%;
+  width: 20%;
+  /*width: 25%;*/
   background-color: hsl(0, 0%, 20%);
   transition: left 0.5s;
+  z-index: 10;
 }
 
 nav.v-nav ul {
@@ -67,23 +69,33 @@ nav.v-nav ul li:hover {
 }
 
 nav.horiz-nav {
+  visibility: hidden;
   z-index: 1;
 }
 
-.horiz-nav a.navbar-brand {
-  padding-left: 0;
-}
-
-.navbar-menu-icon {
-  /*text-align: right;*/
-  display: inline-block;
-  width: 20px;
+.nav-header {
+  /*display: inline;*/
+  /*width: 80%;*/
   position: absolute;
   right: 0;
 }
 
-.navbar-menu-icon .fa {
+.navbar-menu-icon {
+  text-align: right;
+  /*display: inline;*/
+  /*width: 20%;*/
+  position: absolute;
+  left: 0;
+}
+
+.navbar-menu-icon .fa,
+.nav-header a {
   line-height: 2.6em;
+}
+
+pre.quarter-code,
+pre.small-code {
+  display: none;
 }
 
 pre,
@@ -92,7 +104,7 @@ pre,
   color: hsl(0, 0%, 30%);
 }
 
-.home p {
+.home section {
   /*max-width: 400px;*/
 }
 
@@ -107,17 +119,20 @@ nav.horiz-nav {
   margin: 0 auto;
 }
 
-.home h1,
+/*.home h1,
 .about,
 .contact {
   padding-top: 12.72265%;
-}
-.home p,
+}*/
+.home section,
 .home pre {
   margin-top: 12.72265%;
 }
 
-.search-container {
+.search-container,
+.about,
+.home,
+.contact {
   padding-top: 24.19355%;
 }
 
@@ -140,6 +155,7 @@ nav.horiz-nav {
   left: 20px;
   color: hsl(0, 0%, 90%);
   transition: all 0.5s;
+  z-index: 15;
 }
 
 .fa-bars.side-menu-icon {
@@ -167,7 +183,57 @@ nav.horiz-nav {
   visibility: hidden;
 }
 
-@media only screen and (max-width: 300px) {
+@media only screen and (max-width: 1100px) {
+  nav.v-nav {
+    left: -25%;
+    width: 25%;
+  }
+
+  nav.horiz-nav {
+    visibility: visible;
+  }
+}
+
+@media only screen and (max-width: 558px) {
+  .home pre.full-code {
+    display: none;
+  }
+
+  .home pre.quarter-code {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .home pre.quarter-code {
+    display: none;
+  }
+
+  .home pre.small-code {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 630px) {
+  .home section,
+  .home .code-container {
+    padding-left: 3.55239%;
+    padding-right: 3.55239%;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  nav.v-nav {
+    left: -40%;
+    width: 40%;
+  }
+}
+
+@media only screen and (max-width: 670px) {
+  nav.v-nav {
+    left: -60%;
+    width: 60%;
+  }
   nav.horiz-nav {
     visibility: hidden;
   }
