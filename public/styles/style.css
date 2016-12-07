@@ -36,11 +36,6 @@ nav, footer {
 }
 /****************/
 
-/* Color Scheme
-  Analogous (from left):
-  DCB1FF,AFA1E8,C6CEFF,ACC9E8,B9F3FF
- */
-
 body {
   /*background-image: url('../assets/images/wccsnfwrkz0-cameron-kirby.jpg');*/
   position: relative;
@@ -163,10 +158,14 @@ nav.horiz-nav {
   margin-top: 12.72265%;
 }
 
-.search-container,
+.search-container {
+  padding-top: 4.83871%;
+}
+
 .about,
 .home,
-.contact {
+.contact,
+.all-projects {
   padding-top: 12.72265%;
 }
 
@@ -241,6 +240,18 @@ input.form-control {
   font-size: 1em;
 }
 
+input[type=search],
+input[type=text],
+input[type=email],
+.contact textarea.form-control,
+input[type=search]:focus,
+input[type=text]:focus,
+input[type=email]:focus  {
+  border: 0;
+  border-bottom: solid 1px #000;
+  box-shadow: none;
+}
+
 .tag,
 input[type=submit] {
   background-color: #F0C35A;
@@ -258,6 +269,18 @@ input[type=submit] {
   border-radius: 0;
 }
 
+@media only screen and (min-width: 1100px) {
+  .contact,
+  .about {
+    padding-top: 34.13940%;
+  }
+}
+
+@media only screen and (max-width: 1250px) {
+  nav.v-nav {
+    width: 15%;
+  }
+}
 @media only screen and (max-width: 1100px) {
   nav.v-nav {
     left: -25%;
@@ -286,14 +309,6 @@ input[type=submit] {
 
   .home pre.small-code {
     display: block;
-  }
-}
-
-@media only screen and (max-width: 630px) {
-  .home section,
-  .home .code-container {
-    /*padding-left: 3.55239%;
-    padding-right: 3.55239%;*/
   }
 }
 
