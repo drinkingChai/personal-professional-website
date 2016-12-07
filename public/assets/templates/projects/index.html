@@ -5,8 +5,8 @@
 
       <!-- Tags -->
       <div class="tag-filter">
+        <span class="btn tag" ng-click="tagSearch.name = ''">all</span>
         <span class="btn tag" ng-repeat="tag in tags" ng-click="tagSearch.name = tag">{{tag}}</span>
-        <span class="btn tag" ng-click="tagSearch.name = ''">Clear</label>
       </div>
     </div>
 

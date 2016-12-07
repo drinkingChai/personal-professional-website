@@ -12,9 +12,9 @@
 
     <fieldset class="form-group">
       <!-- <label for="description">Inquiry</label> -->
-      <textarea class="form-control" id="inquiry" name="inquiry" placeholder="Inquiry..." ng-required="true"></textarea>
+      <textarea rows="7" class="form-control" id="inquiry" name="inquiry" placeholder="Inquiry..." ng-required="true"></textarea>
     </fieldset>
 
-    <input type="submit" class="btn btn-default" ng-click="form.$valid && saveProject(project)">
+    <input type="submit" class="btn" ng-click="form.$valid && saveProject(project)">
   </form>
 </div>
