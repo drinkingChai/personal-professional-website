@@ -12,7 +12,7 @@
     </div>
   </div>
 
-<!-- List of projects -->
+  <!-- List of projects -->
   <div class="list-project" ng-repeat="project in projects | filter:search | tagFilter:tagSearch.name">
     <h2>{{project.title}}</h2>
     <p><span class="tag" ng-repeat="tag in project.tags">{{tag}}</span></p>

@@ -67,6 +67,24 @@ nav.v-nav ul {
   list-style-type: none;
 }
 
+footer {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding-bottom: 12.72265%;
+}
+
+footer ul {
+  white-space: nowrap;
+  list-style-type: none;
+}
+
+footer ul li {
+  display: inline;
+  margin-right: 10px;
+}
+
 
 nav.v-nav ul li a {
   display: block;
@@ -167,6 +185,7 @@ nav.horiz-nav {
 .contact,
 .all-projects {
   padding-top: 12.72265%;
+  padding-bottom: 12.72265%;
 }
 
 .list-project {
@@ -236,7 +255,8 @@ p .tag {
   line-height: 3.6em;
 }
 
-input.form-control {
+input.form-control,
+textarea.form-control {
   font-size: 1em;
 }
 
@@ -274,10 +294,17 @@ input[type=submit] {
   .about {
     padding-top: 34.13940%;
   }
+
+  footer {
+    /*position: fixed;*/
+    z-index: 200;
+    /*width: 20%;*/
+  }
 }
 
 @media only screen and (max-width: 1250px) {
-  nav.v-nav {
+  nav.v-nav,
+  footer {
     width: 15%;
   }
 }
