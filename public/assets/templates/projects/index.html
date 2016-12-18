@@ -18,6 +18,7 @@
     <p><span class="tag" ng-repeat="tag in project.tags">{{tag}}</span></p>
     <p>{{project.description}}</p>
 
+    <a class="btn tag" ng-href="{{project.url}}" ng-show="project.url">Live Demo</a>
     <!-- Edit options -->
     <!-- maybe we'll add show?? <a ng-href="#/projects/{{project.id}}">More...</a> -->
     <!-- <a ng-href="#/projects/{{project.id}}/edit">Edit</a> -->

@@ -193,7 +193,12 @@ nav.horiz-nav {
 }
 
 .list-project:nth-child(2) {
+  /* what is this for ? :( */
   margin-top: 8.29032%;
+}
+
+.list-project a {
+  margin-top: 1.68634%;
 }
 
 .tag-filter {
@@ -203,7 +208,7 @@ nav.horiz-nav {
 .side-menu-icon {
   visibility: hidden;
   position: relative;;
-  width: 100%;
+  /*width: 100%;*/
   text-align: left;
   top: 20px;
   left: 20px;
