@@ -16,7 +16,8 @@ angular.module('ProfessionalWebsite')
         templateUrl: 'assets/templates/about.html'
       })
       .when('/contact', {
-        templateUrl: 'assets/templates/contact.html'
+        templateUrl: 'assets/templates/contact.html',
+        controller: 'ContactController'
       })
       .when('/projects', {
         templateUrl: 'assets/templates/projects/index.html',
