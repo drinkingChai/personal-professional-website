@@ -261,6 +261,13 @@ nav.horiz-nav {
   text-align: center;
 }
 
+footer ul li a,
+footer ul li a:hover,
+footer ul li a:focus,
+footer ul li a:visited {
+  color: hsl(0, 0%, 15%);
+}
+
 /*.tag-filter .tag:last-child {
   background-color: #231854;
 }*/
