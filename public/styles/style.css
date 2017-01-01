@@ -246,6 +246,21 @@ nav.horiz-nav {
   font-size: 0.75em;
 }
 
+.full-screen-overlay {
+  background-color: hsla(0, 0%, 100%, 0.85);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
 /*.tag-filter .tag:last-child {
   background-color: #231854;
 }*/
