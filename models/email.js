@@ -15,7 +15,7 @@ module.exports = {
       from: 'example@gmail.com', // sender address
       to: 'teatocode@gmail.com', // list of receivers
       subject: 'New request from ' + data.name, // Subject line
-      text: data.sender + '\n\n' + data.body //, // plaintext body
+      text: 'New request from ' + data.name + ' at ' + data.sender + '\n\n' + data.body //, // plaintext body
       // html: '<b>Hello world ✔</b>' // You can choose to send an HTML body instead
     };
 
