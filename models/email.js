@@ -1,4 +1,5 @@
 var nodemailer = require('nodemailer');
+var passwords = require('./passwords.js');
 
 module.exports = {
   new: function(data) {
@@ -6,7 +7,7 @@ module.exports = {
       service: 'Gmail',
       auth: {
         user: 'wzamanwebsite@gmail.com', // Your email id
-        pass: 'teatoemail' // Your password
+        pass: passwords.email // Your password
       }
     });
 
